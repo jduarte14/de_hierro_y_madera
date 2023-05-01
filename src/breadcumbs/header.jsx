@@ -11,7 +11,7 @@ const Header = () => {
     useEffect(() => {
         window.addEventListener("scroll", isFixed);
     });
-    
+
     const isFixed = () => {
         let header = document.querySelector('.header');
         const scrollTop = window.scrollY;
@@ -49,7 +49,7 @@ const Header = () => {
                                         <Link to="/catalogo?category=muebles">Muebles </Link>
                                     </li>
                                     <li>
-                                    <Link to="/catalogo?category=lamparas">Diseños</Link>
+                                        <Link to="/catalogo?category=lamparas">Diseños</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -74,15 +74,18 @@ const Header = () => {
                                 <Link to="/catalogo">Muebles</Link>
                                 <ul>
                                     <li>
-                                    <Link to="/catalogo?category=hogar">Hogar</Link>
+                                        <Link to="/catalogo?category=mesas">Mesas</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=sillas">Sillas</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li id="drop-down" className="dropdown-catalogo">
                                 <Link to="/catalogo">Diseños</Link>
-                                <ul>
+                                <ul>    
                                     <li>
-                                    <Link to="/catalogo?category=lamparas">Lamparas</Link>
+                                        <Link to="/catalogo?category=lamparas">Lamparas</Link>
                                     </li>
                                 </ul>
                             </li>
