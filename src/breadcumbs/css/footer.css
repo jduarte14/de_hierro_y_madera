@@ -1,0 +1,155 @@
+.footer-wrapper {
+    background: var(--brown);
+    color: white;
+    width: 100%;
+}
+
+
+.footer-content {
+    max-width:80%;
+    width:100%;
+    margin:0 auto ;
+    padding-bottom:40px;
+    padding-top:40px;
+}
+
+
+.logo-mail {
+    display:flex;
+    align-items: center;
+    padding-bottom:10px;
+}
+.logo-mail span {
+    font-size:1.5em;
+}
+
+form input::placeholder {
+    color:var(--white);
+}
+
+.footer-content form {
+    display: flex;
+    justify-content: flex-end;
+    position:relative;
+}
+
+.form-wrapper svg {
+    font-size:4em;
+}
+
+.footer-content .logo img {
+    max-width:150px;
+    height:auto;
+    filter: invert(1);
+}
+.footer-content .logo {
+    margin-bottom:30px;
+}
+
+form input {
+    padding: 10px;
+    border-radius: 2px;
+    border: 2.3px solid var(--white);
+    background:var(--brown);
+    color:var(--white);
+}
+
+form input + input { 
+    margin: 0 10px;
+}
+
+.page-owner b + b {
+    padding-left:5px;
+}
+.form-wrapper {
+    margin-left:auto;
+    width:max-content;
+}
+
+
+.message-sended {
+    transition:2s ease;
+    opacity:1;
+}
+
+.message-sended {
+    transition: 2s ease;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -30px;
+}
+
+.message-sended.hide {
+    opacity:0;
+}
+
+#btnEnviar {
+    height: 40px;
+    transition: 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition:0.3s ease;
+    cursor: pointer;
+}
+
+#btnEnviar:hover {
+    opacity:0.8;
+}
+
+@media (min-width:1023px) {
+    form input:first-child {
+        margin-right: 10px;
+    }
+    .logo-mail span {
+        padding-left:10px;
+    }
+}
+
+
+@media (max-width:920px) {
+
+    #btnEnviar {
+        background: white;
+        color: var(--brown);
+        font-size:15px;
+    }
+
+    .footer-content form {
+        flex-direction: column;
+        justify-content: center;
+    }
+    form input {
+        margin:10px !important;
+    }
+    .logo-mail span {
+        font-size:1em;
+    }
+    .logo-mail {
+        flex-direction: column;
+    }
+    .form-wrapper {
+        margin:0 auto;
+        padding-bottom:20px;
+    }
+}
+
+@media (max-width:640px) {
+    .page-owner {
+        font-size: 10px;
+        text-align: center;
+    }
+    .footer-content .logo {
+        display:flex;
+        justify-content: center;
+    }
+    .footer-content {
+        margin-top:40px;
+    }
+    .message-sended {
+        position:relative;
+        bottom:0;
+    }
+}

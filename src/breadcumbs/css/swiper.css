@@ -1,0 +1,26 @@
+.swiper-slide img {
+    width:100%;
+    z-index:1;
+}
+
+/* categorias */
+
+.category-container img {
+    width:100px;
+    height:auto;
+}
+.category-container {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin:10% 0;
+}
+
+.category-container b {
+    margin-top:10px;
+}
+.category-container {
+    cursor:pointer;
+}
+
