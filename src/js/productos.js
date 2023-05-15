@@ -85,8 +85,8 @@ export const products = [
     },
     {
         id: "8",
-        title: 'Escritorio estilo industrial con 2 estantes',
-        category: 'escritorios',
+        title: 'Lámpara estilo industrial rectangular',
+        category: 'lamparas',
         description: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.' 
             + ' Con su diseño moderno y acabado metálico, proporciona una iluminación directa y focalizada para resaltar cualquier espacio. ' +
             ' Fácil de instalar y versátil en su uso, esta lámpara es perfecta para cualquier ambiente contemporáneo.',
@@ -97,7 +97,7 @@ export const products = [
     {
         id: "9",
         title: 'Lampara industrial rectangular',
-        category: 'escritorio',
+        category: 'escritorios',
         description: '¡Escritorio estilo industrial con dos estantes en venta! Funcional y elegante, este escritorio de alta calidad combina metal negro y madera natural para un aspecto moderno y robusto. Con dos estantes adicionales, ofrece espacio de almacenamiento extra para mantener tus cosas organizadas. Contáctanos ahora para más información.',
         previewDescription: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.',
         img1: escritorioIndustrial1,
