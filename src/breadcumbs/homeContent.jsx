@@ -1,9 +1,7 @@
 import HomeSwiper from '../components/HomeSwiper'
 import CategorySwiper from '../components/CategorySwiper';
 import ProductSwiper1 from '../components/ProductSwiper1';
-import Middlebanners from '../components/MiddleBanners';
-import home from './css/home.css';
-
+import './css/home.css';
 
 const HomeContent = () => {
 
@@ -11,12 +9,11 @@ const HomeContent = () => {
         <>
             <HomeSwiper />
             <div className="home-wrapper">
-                <Middlebanners />
                 <CategorySwiper />
-                <ProductSwiper1 />
+                <ProductSwiper1 categoriaPadre="muebles"/>
                 <div className="banner">
                 <img src="https://dummyimage.com/1700x400/000/fff" alt="" />
-                <ProductSwiper1 />
+                <ProductSwiper1  categoriaPadre="diseño"/>
                 </div>
             </div>
 

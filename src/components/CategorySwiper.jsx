@@ -1,8 +1,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
-import Sillas from './../img/categorias/sillas.svg';
-import Techos from './../img/categorias/techos.svg';
-import Mesas from './../img/categorias/mesas.svg'; 
+
+import Escritorio from './../img/categorias/escritorio.png';
+import Lamparas from './../img/categorias/lamparas.png';
+import Mesas from './../img/categorias/mesas.png';
+import Sillas from './../img/categorias/sillas.png';
+import Taburete from './../img/categorias/taburete.png';
+import Toallero from './../img/categorias/toallero.png';
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,46 +21,28 @@ const CategorySwiper = () => {
         breakpoints={{
             1024: {
                 width:1024,
-                slidesPerView: 6
+                slidesPerView: 5
             },
             640: {
                 width: 640,
-                slidesPerView: 2,
+                slidesPerView: 3,
             },
             320: {
                 width: 320,
-                slidesPerView: 2,
+                slidesPerView: 3,
             },
         }}
           >
             <SwiperSlide>
                 <div className="category-container">
-                <img src={Sillas} alt="" />
-                <b>Techos</b>
+                <img src={Escritorio} alt="" />
+                <b>Escritorios</b>
             </div>
             </SwiperSlide>
             <SwiperSlide>
                 <div className="category-container">
-                <img src={Techos} alt="" />
-                <b>Sillas</b>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="category-container">
-                <img src={Mesas} alt="" />
-                <b>Mesas</b>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="category-container">
-                <img src={Sillas} alt="" />
-                <b>Techos</b>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="category-container">
-                <img src={Techos} alt="" />
-                <b>Sillas</b>
+                <img src={Lamparas} alt="" />
+                <b>Lamparas</b>
             </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -67,21 +54,22 @@ const CategorySwiper = () => {
             <SwiperSlide>
                 <div className="category-container">
                 <img src={Sillas} alt="" />
-                <b>Techos</b>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="category-container">
-                <img src={Techos} alt="" />
                 <b>Sillas</b>
             </div>
             </SwiperSlide>
             <SwiperSlide>
                 <div className="category-container">
-                <img src={Mesas} alt="" />
-                <b>Mesas</b>
+                <img src={Taburete} alt="" />
+                <b>Taburetes</b>
             </div>
             </SwiperSlide>
+            <SwiperSlide>
+                <div className="category-container">
+                <img src={Toallero} alt="" />
+                <b>Toalleros</b>
+            </div>
+            </SwiperSlide>
+           
             
         </Swiper>
     );

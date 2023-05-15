@@ -2,17 +2,21 @@ body:has(.home-wrapper) {
     background: #f1f1f1;
 }
 
+.group_title:first-letter {
+    text-transform: uppercase;
+}
+
 
 .home-wrapper {
     max-width: 80%;
     margin: 0 auto;
     background: var(--white);
     padding: 1%;
-    width:100%;
+    width: 100%;
 }
 
 .home-content {
-    width:100%;
+    width: 100%;
 }
 
 .product-wrapper {
@@ -25,7 +29,6 @@ body:has(.home-wrapper) {
 
 .home-content .swiper-wrapper {
     padding-bottom: 20px;
-    display: flex;
 }
 
 .title h4 {
@@ -208,7 +211,27 @@ span.swiper-pagination-bullet {
     margin-left: auto;
 }
 
+.group_title h1 {
+    margin-bottom:5px;
+}
+
+.group_title {
+    max-width:max-content;
+}
+
+.group_title hr {
+    height: 5px;
+    background: var(--brown);
+    border-width:0;
+}
+
 @media (min-width:1024px) {
+
+    .group_title {
+        padding:0 8px;
+    }
+
+   
 
     .principal-banner .mobile {
         display: none;
@@ -322,6 +345,14 @@ span.swiper-pagination-bullet {
 }
 
 @media (max-width:1023px) {
+
+    .group_title h1 {
+        font-size:25px;
+    }
+
+    .group_title {
+        padding:0 10px;
+    }
     .principal-banner {
         display: flex;
         flex-direction: column-reverse;
@@ -382,7 +413,7 @@ span.swiper-pagination-bullet {
     }
 
     .home-wrapper {
-        max-width:100%;
+        max-width: 100%;
     }
 
     .middle-info {
@@ -411,14 +442,17 @@ span.swiper-pagination-bullet {
     .sub-info h3 {
         font-size: 14px
     }
+
     .principal-banner .info {
-        margin-bottom:12px;
+        margin-bottom: 12px;
     }
+
     .info h1 {
-        font-size:20px;
+        font-size: 20px;
     }
+
     .info h4 {
-        font-size:15px;
+        font-size: 15px;
     }
 
     .sub-info b {
@@ -435,8 +469,9 @@ span.swiper-pagination-bullet {
 
 @media (max-width:380px) {
     .info h1 {
-        font-size:14px;
+        font-size: 14px;
     }
+
     .info h4 {
         font-size: 12px
     }
