@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import productos from './../js/productos'
 import { Link } from 'react-router-dom';
-import { Navigation } from 'swiper';
+import { Navigation, Loop } from 'swiper';
 
 import 'swiper/css';
 
@@ -12,6 +12,7 @@ const ProductSwiper1 = () => {
       <Swiper spaceBetween={35}
           modules={[Navigation]}
           navigation
+          loop
           breakpoints={{
             1920: {
               width: 1920,

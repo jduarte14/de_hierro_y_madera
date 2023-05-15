@@ -14,7 +14,8 @@ const CategorySwiper = () => {
         navigation
         pagination
         breakpoints={{
-            1920: {
+            1024: {
+                width:1024,
                 slidesPerView: 6
             },
             640: {

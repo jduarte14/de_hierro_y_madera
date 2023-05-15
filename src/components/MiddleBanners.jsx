@@ -11,7 +11,8 @@ const MiddleBanners = () => {
             navigation
             
             breakpoints={{
-                1920: {
+                1024: {
+                    width:1024,
                     slidesPerView: 2
                 },
                 640: {

@@ -1,3 +1,5 @@
+
+
 .swiper-slide img {
     width:100%;
     z-index:1;
@@ -24,3 +26,14 @@
     cursor:pointer;
 }
 
+
+
+.swiper-container {
+    width: 100%; 
+}
+  @media all and (max-width: 768px) {
+    .swiper-container {
+      max-width: 600px; 
+      margin: 0 auto;
+    }
+  }
