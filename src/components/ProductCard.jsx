@@ -1,7 +1,7 @@
 import react from 'react';
 import { useParams } from "react-router-dom"
 import productos from './../js/productos';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 //Import Swiper 
 
@@ -19,25 +19,31 @@ import 'swiper/css/pagination';
 
 
 const ProductCard = () => {
+    const [dropdown, setDropdown] = useState(true);
+
+    const useDropdown =()=>{
+        setDropdown(!dropdown);
+    }
+
     const { id } = useParams()
     const product = productos.find(product => product.id === id);
     let phone = 59899206715;
     let url = window.location.href;
     let whatsapp = `https://api.whatsapp.com/send/?phone=${phone}&text=Hola+tengo+una+consulta+sobre+${product.title}+con+descripcion+${product.description}+de+url+${url}`;
 
-    const checkImages=()=>{
+    const checkImages = () => {
         let images = document.querySelectorAll('.product-img .swiper-slide img');
-        
-        images.forEach((image)=>{
-            if(!image.hasAttribute('src')){
+
+        images.forEach((image) => {
+            if (!image.hasAttribute('src')) {
                 image.parentElement.remove();
             }
         })
     }
-    
+
     useEffect(() => {
         document.body.classList.add('product-card');
-         checkImages();
+        checkImages();
     })
 
     return (
@@ -50,12 +56,12 @@ const ProductCard = () => {
                         modules={[Navigation, Pagination]}
                         navigation
                         pagination
-                        
+
                     >
                         <SwiperSlide><img src={product.img1} alt="" /></SwiperSlide>
                         <SwiperSlide><img src={product.img2} alt="" /></SwiperSlide>
                         <SwiperSlide><img src={product.img3} alt="" /></SwiperSlide>
-                        
+
                     </Swiper>
 
                 </div>
@@ -64,6 +70,13 @@ const ProductCard = () => {
                     <h1>{product.title}</h1>
                     <span>{product.description}</span>
                     <a className="btnConsultar" href={whatsapp} target="_blank"> Consultar <FaWhatsapp /> </a>
+                    {product.caracteristicas != null ?
+                        <div className={`dropdown ${dropdown ? 'active' : ''}`} onClick={useDropdown}>
+                            <b>Caracteristicas</b> <b class="ico"></b>
+                            <br />
+                            <span>{product.caracteristicas}</span>
+                        </div>
+                        : ''}
                 </div>
             </div>
         </div>

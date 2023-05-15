@@ -100,6 +100,7 @@ export const products = [
         category: 'escritorios',
         description: '¡Escritorio estilo industrial con dos estantes en venta! Funcional y elegante, este escritorio de alta calidad combina metal negro y madera natural para un aspecto moderno y robusto. Con dos estantes adicionales, ofrece espacio de almacenamiento extra para mantener tus cosas organizadas. Contáctanos ahora para más información.',
         previewDescription: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.',
+        caracteristicas:'Medidas: 100cm de ancho, 45cm de profundidad y 75cm de altura',
         img1: escritorioIndustrial1,
         img2: escritorioIndustrial2
     },
