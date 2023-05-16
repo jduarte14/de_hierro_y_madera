@@ -119,7 +119,7 @@ const ProductCard = () => {
                     <p>{product.description}</p>
                     <div className="btns-container">
                         <a className="btnConsultar" href={whatsapp} target="_blank"> Consultar <FaWhatsapp /> </a>
-                        <button className="btnConsultar" onClick={openPopup}> Envianos un mail <AiOutlineMail/> </button>
+                        <button className="btnConsultar" onClick={openPopup}> Envianos un mail <AiOutlineMail /> </button>
                     </div>
 
                     {product.caracteristicas != null ?
@@ -132,22 +132,26 @@ const ProductCard = () => {
                 </div>
             </div>
             {mailPopUp &&
+                <>
+                    <div className='overlay' onClick={closePopup} />
+                    <div className="pp-container">
+                        <div className={`pp-content ${mailPopUp ? 'fade-in' : 'fade-out'}`}>
+                            <div className="pp-close" onClick={closePopup}>
+                                <GrFormClose />
+                            </div>
+                            <h2> Contactanos por email </h2>
+                            <form id="contact-mail" onSubmit={useMailPopUp} >
+                                <input type="text" placeholder="Nombre completo" name='user_name' ref={name} required />
+                                <input type="text" placeholder="Mail" name='user_email' ref={mail} required />
+                                <textarea rows="8" placeholder="Mensaje" name='user_message' ref={message} required />
+                                <input type="submit" id="btnEnviar" value='Enviar' />
 
-                <div className={`pp-gmail ${mailPopUp ? 'fade-in' : 'fade-out'}`} onClick={closePopup}>
-                    <div className={`pp-content ${mailPopUp ? 'fade-in' : 'fade-out'}`}>
-                        <div className="pp-close" onClick={closePopup}>
-                            <GrFormClose />
+                            </form>
                         </div>
-                        <h2> Contactanos por email </h2>
-                        <form id="contact-mail" onSubmit={useMailPopUp} >
-                            <input type="text" placeholder="Nombre completo" name='user_name' ref={name} required />
-                            <input type="text" placeholder="Mail" name='user_email' ref={mail} required />
-                            <textarea rows="8" placeholder="Mensaje" name='user_message' ref={message} required />
-                            <input type="submit" id="btnEnviar" value='Enviar' />
-
-                        </form>
                     </div>
-                </div>
+
+                </>
+
             }
         </div>
     );

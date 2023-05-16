@@ -1,16 +1,22 @@
-
-
-
 /* popup*/
+
+.pp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
 
 .pp-content form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 9;
 }
 
-.pp-gmail {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -20,13 +26,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     z-index: 6;
-    background:rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .pp-content {
+    display:flex;
+    flex-direction: column;
+    position:fixed;
     background: var(--gray2);
     padding: 20px;
     z-index: 7;
@@ -37,27 +46,22 @@
 }
 
 
-.pp-content {
-    display:flex;
-    flex-direction:column;
-    position:relative;
-}
 
 
 .pp-close {
-    max-width:max-content;
+    max-width: max-content;
     position: absolute;
-    right:0;
-    top:0;
-    font-size:25px;
+    right: 0;
+    top: 0;
+    font-size: 25px;
     cursor: pointer;
-    background:var(--brown);
-    display:flex;
+    background: var(--brown);
+    display: flex;
     align-items: center;
 }
 
 .pp-close svg {
-    filter:invert();
+    filter: invert();
 }
 
 .pp-content input {
@@ -75,35 +79,35 @@
     color: var(--white);
     font-weight: bold;
     border-radius: 5px;
-    font-size:18px;
+    font-size: 18px;
 }
 
 
 .pp-content #btnEnviar {
-    cursor:pointer;
-    transition:0.3s ease;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .pp-content #btnEnviar:hover {
-    opacity:0.8;
+    opacity: 0.8;
 }
 
 .pp-content textarea {
-    width:100%;
-    margin-top:10px;
-    border:2px solid var(--gray);
-    font-family:'Poppins', sans-serif;
-    padding:5px 3px;
-    max-width:320px;
+    width: 100%;
+    margin-top: 10px;
+    border: 2px solid var(--gray);
+    font-family: 'Poppins', sans-serif;
+    padding: 5px 3px;
+    max-width: 320px;
 }
 
 
 .pp-content .hidden-data {
-    display:none;
+    display: none;
 }
 
 .btns-container {
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
@@ -112,34 +116,25 @@
 }
 
 .btnConsultar {
-    font-weight:bold;
-    font-size:16px;
+    font-weight: bold;
+    font-size: 16px;
     text-transform: uppercase;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-@keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fade-out {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  .fade-in {
+
+
+.fade-in {
     animation: fade-in 0.5s;
-  }
-  
-  .fade-out {
+}
+
+.fade-out {
     animation: fade-out 0.5s;
-  }
+}
+
+
+@media (max-width:420px) {
+    .pp-content {
+        max-width: max-content;
+    }
+}
