@@ -133,7 +133,7 @@ const ProductCard = () => {
             </div>
             {mailPopUp &&
                 <>
-                    <div className='overlay' onClick={closePopup} />
+                    <div className={`pp-overlay  ${mailPopUp ? 'fade-in' : 'fade-out'}`} onClick={closePopup} />
                     <div className="pp-container">
                         <div className={`pp-content ${mailPopUp ? 'fade-in' : 'fade-out'}`}>
                             <div className="pp-close" onClick={closePopup}>

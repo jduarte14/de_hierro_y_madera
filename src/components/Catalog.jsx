@@ -51,10 +51,13 @@ const ProductCatalog = () => {
                 <div className="sidebar-wrapper">
                     <div className="filter-column">
                         <h4> Filtros </h4>
-                        <b>Hogar: </b>
+                        <b>Muebles: </b>
                         <button onClick={() => handleFilterChange('mesas')}>Mesas </button>
                         <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
-                        <b>Diseños:</b>
+                        <button onClick={() => handleFilterChange('escritorios')}>Escritorios </button>
+                        <button onClick={() => handleFilterChange('taburetes')}>Taburetes </button>
+                        <button onClick={() => handleFilterChange('toalleros')}>Toalleros </button>
+                        <b>Luminaria:</b>
                         <button onClick={() => handleFilterChange('lamparas')}>Lamparas </button>
                         <button id="verTodos" onClick={() => handleFilterChange('all')}>Quitar filtros</button>
                     </div>
@@ -71,11 +74,15 @@ const ProductCatalog = () => {
                     <div id="category-container">
                         <button onClick={() => handleFilterChange('mesas')}>Mesas </button>
                         <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
+                        <button onClick={() => handleFilterChange('escritorios')}>Escritorios </button>
+                        <button onClick={() => handleFilterChange('taburetes')}>Taburetes </button>
+                        <button onClick={() => handleFilterChange('toalleros')}>Toalleros </button>
                     </div>
                     <h4>Diseños</h4>
 
                     <div id="category-container">
-                        <button data="techado" onClick={() => handleFilterChange('lamparas')}>Lamparas </button>
+                        <button onClick={() => handleFilterChange('lamparas')}>Lamparas </button>
+                        <button id="verTodos" onClick={() => handleFilterChange('all')}>Quitar filtros</button>
                     </div>
                 </div>
 

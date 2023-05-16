@@ -1,4 +1,4 @@
-/* popup*/
+/* popup */
 
 .pp-container {
     display: flex;
@@ -6,7 +6,6 @@
     align-items: center;
     position: absolute;
 }
-
 
 .pp-content form {
     display: flex;
@@ -16,7 +15,7 @@
     z-index: 9;
 }
 
-.overlay {
+.pp-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,9 +32,9 @@
 }
 
 .pp-content {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    position:fixed;
+    position: fixed;
     background: var(--gray2);
     padding: 20px;
     z-index: 7;
@@ -43,10 +42,8 @@
     width: 320px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    animation: fade-in 0.5s forwards; 
 }
-
-
-
 
 .pp-close {
     max-width: max-content;
@@ -82,7 +79,6 @@
     font-size: 18px;
 }
 
-
 .pp-content #btnEnviar {
     cursor: pointer;
     transition: 0.3s ease;
@@ -100,7 +96,6 @@
     padding: 5px 3px;
     max-width: 320px;
 }
-
 
 .pp-content .hidden-data {
     display: none;
@@ -122,8 +117,6 @@
     cursor: pointer;
 }
 
-
-
 .fade-in {
     animation: fade-in 0.5s;
 }
@@ -132,8 +125,16 @@
     animation: fade-out 0.5s;
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
     .pp-content {
         max-width: max-content;
     }
