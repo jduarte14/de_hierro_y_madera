@@ -11,10 +11,7 @@ const HomeContent = () => {
             <div className="home-wrapper">
                 <CategorySwiper />
                 <ProductSwiper1 categoriaPadre="muebles"/>
-                <div className="banner">
-                <img src="https://dummyimage.com/1700x400/000/fff" alt="" />
                 <ProductSwiper1  categoriaPadre="diseño"/>
-                </div>
             </div>
 
         </>
