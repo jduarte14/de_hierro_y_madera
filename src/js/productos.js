@@ -70,7 +70,7 @@ export const products = [
         id: "7",
         title: 'Taburete Banqueta de Hierro y Madera',
         categoriaPadre: "muebles",
-        category: 'sillas',
+        category: 'taburetes', 
         description: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.' +
             'Ideal para desayunador, barra, quinchos, bar.' +
             'Fabricadas con estructura de hierro 20/20 y madera maciza de pino de 2 cm de espesor.' +
@@ -93,7 +93,7 @@ export const products = [
     },
     {
         id: "9",
-        title: 'Lampara industrial rectangular',
+        title: 'Escritorio estilo industrial',
         categoriaPadre: "muebles",
         category: 'escritorios',
         description: '¡Escritorio estilo industrial con dos estantes en venta! Funcional y elegante, este escritorio de alta calidad combina metal negro y madera natural para un aspecto moderno y robusto. Con dos estantes adicionales, ofrece espacio de almacenamiento extra para mantener tus cosas organizadas. Contáctanos ahora para más información.',

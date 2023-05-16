@@ -1,5 +1,4 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Link } from 'react-router-dom';
 
 import Escritorio from './../img/categorias/escritorio.png';
 import Lamparas from './../img/categorias/lamparas.png';
@@ -14,41 +13,39 @@ import 'swiper/css/navigation';
 
 const CategorySwiper = () => {
     return (
+
         <div className="category-wrapper">
-            <div className="category-container">
+            <Link to='/catalogo?category=escritorios' className="category-container">
                 <img src={Escritorio} alt="" />
                 <b>Escritorios</b>
-            </div>
-
-
-            <div className="category-container">
+            </Link>
+            <Link to='/catalogo?category=lamparas' className="category-container">
                 <img src={Lamparas} alt="" />
                 <b>Lamparas</b>
-            </div>
+            </Link>
 
 
-            <div className="category-container">
+            <Link to='/catalogo?category=mesas' className="category-container">
                 <img src={Mesas} alt="" />
                 <b>Mesas</b>
-            </div>
+            </Link>
 
 
-            <div className="category-container">
+            <Link to='/catalogo?category=sillas' className="category-container">
                 <img src={Sillas} alt="" />
                 <b>Sillas</b>
-            </div>
+            </Link>
 
 
-            <div className="category-container">
+            <Link to='/catalogo?category=taburetes' className="category-container">
                 <img src={Taburete} alt="" />
-                <b>Taburetes</b>
-            </div>
+                <b>Taburete</b>
+            </Link>
 
-
-            <div className="category-container">
+            <Link to='/catalogo?category=toalleros' className="category-container">
                 <img src={Toallero} alt="" />
                 <b>Toalleros</b>
-            </div>
+            </Link>
         </div>
 
     );
