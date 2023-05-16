@@ -1,0 +1,145 @@
+
+
+
+/* popup*/
+
+.pp-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp-gmail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    z-index: 6;
+    background:rgba(0,0,0,0.5);
+}
+
+.pp-content {
+    background: var(--gray2);
+    padding: 20px;
+    z-index: 7;
+    border-top: 7px solid var(--brown);
+    width: 320px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.pp-content {
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+
+.pp-close {
+    max-width:max-content;
+    position: absolute;
+    right:0;
+    top:0;
+    font-size:25px;
+    cursor: pointer;
+    background:var(--brown);
+    display:flex;
+    align-items: center;
+}
+
+.pp-close svg {
+    filter:invert();
+}
+
+.pp-content input {
+    display: block;
+    margin: 15px 0 0px 0;
+    width: 100%;
+    height: 35px;
+    border: 2px solid var(--gray);
+    padding: 0 3px;
+}
+
+.pp-content #btnEnviar {
+    width: 100%;
+    background: var(--brown);
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 5px;
+    font-size:18px;
+}
+
+
+.pp-content #btnEnviar {
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.pp-content #btnEnviar:hover {
+    opacity:0.8;
+}
+
+.pp-content textarea {
+    width:100%;
+    margin-top:10px;
+    border:2px solid var(--gray);
+    font-family:'Poppins', sans-serif;
+    padding:5px 3px;
+    max-width:320px;
+}
+
+
+.pp-content .hidden-data {
+    display:none;
+}
+
+.btns-container {
+    display:flex;
+    align-items: center;
+}
+
+.btns-container a {
+    margin-right: 10px;
+}
+
+.btnConsultar {
+    font-weight:bold;
+    font-size:16px;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .fade-in {
+    animation: fade-in 0.5s;
+  }
+  
+  .fade-out {
+    animation: fade-out 0.5s;
+  }

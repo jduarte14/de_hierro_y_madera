@@ -45,7 +45,7 @@ const Footer = () => {
 
 
     return (
-        <div className="footer-wrapper">
+        <footer className="footer-wrapper">
 
             <div className="footer-content">
                 <div className="form-wrapper">
@@ -74,7 +74,7 @@ const Footer = () => {
 
             </div>
 
-        </div>
+        </footer>
     )
 }
 

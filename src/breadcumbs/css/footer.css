@@ -23,7 +23,7 @@
     font-size:1.5em;
 }
 
-form input::placeholder {
+footer form input::placeholder {
     color:var(--white);
 }
 
@@ -46,7 +46,7 @@ form input::placeholder {
     margin-bottom:30px;
 }
 
-form input {
+footer form input {
     padding: 10px;
     border-radius: 2px;
     border: 2.3px solid var(--white);
@@ -54,7 +54,7 @@ form input {
     color:var(--white);
 }
 
-form input + input { 
+footer form input + input { 
     margin: 0 10px;
 }
 
@@ -86,7 +86,7 @@ form input + input {
     opacity:0;
 }
 
-#btnEnviar {
+footer #btnEnviar {
     height: 40px;
     transition: 0.3s ease;
     font-weight: bold;
@@ -95,12 +95,12 @@ form input + input {
     cursor: pointer;
 }
 
-#btnEnviar:hover {
+footer #btnEnviar:hover {
     opacity:0.8;
 }
 
 @media (min-width:1023px) {
-    form input:first-child {
+   footer form input:first-child {
         margin-right: 10px;
     }
     .logo-mail span {
@@ -121,7 +121,7 @@ form input + input {
         flex-direction: column;
         justify-content: center;
     }
-    form input {
+    footer form input {
         margin:10px !important;
     }
     .logo-mail span {
