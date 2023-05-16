@@ -49,7 +49,7 @@ const Header = () => {
                                         <Link to="/catalogo?category=muebles">Muebles </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=lamparas">Diseños</Link>
+                                        <Link to="/catalogo?category=lamparas">Luminaria</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -79,10 +79,19 @@ const Header = () => {
                                     <li>
                                         <Link to="/catalogo?category=sillas">Sillas</Link>
                                     </li>
+                                    <li>
+                                        <Link to="/catalogo?category=escritorios">Escritorios</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=taburetes">Taburetes</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=toalleros">Toalleros</Link>
+                                    </li>
                                 </ul>
                             </li>
                             <li id="drop-down" className="dropdown-catalogo">
-                                <Link to="/catalogo">Diseños</Link>
+                                <Link to="/catalogo">Luminaria</Link>
                                 <ul>    
                                     <li>
                                         <Link to="/catalogo?category=lamparas">Lamparas</Link>
