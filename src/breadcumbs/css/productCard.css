@@ -112,7 +112,7 @@
 
 
 @media (min-width:1024px) {
-    .product-info span {
+    .product-info p {
         max-width:470px;
         line-height: 1.6;
     }

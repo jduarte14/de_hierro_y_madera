@@ -68,7 +68,7 @@ const ProductCard = () => {
 
                 <div className="product-info">
                     <h1>{product.title}</h1>
-                    <span>{product.description}</span>
+                    <p>{product.description}</p>
                     <a className="btnConsultar" href={whatsapp} target="_blank"> Consultar <FaWhatsapp /> </a>
                     {product.caracteristicas != null ?
                         <div className={`dropdown ${dropdown ? 'active' : ''}`} onClick={useDropdown}>

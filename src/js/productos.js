@@ -59,8 +59,10 @@ export const products = [
         title: 'Mesa Ratona Estilo Industrial',
         categoriaPadre: "muebles",
         category: 'mesas',
-        previewDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam corrupti quasi harum deleniti at quam ea, quis adipisci. Veniam, esse',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam corrupti quasi harum deleniti at quam ea, quis adipisci. Veniam, esse',
+        previewDescription: 'Mesa Ratona Estilo Industrial: Encanto rústico y diseño industrial en una sola pieza. Combina madera maciza y metal para destacar en tu sala de estar. ¡Agrega estilo a tu hogar con esta mesa única!',
+        description: "Mesa Ratona Estilo Industrial: Una pieza única para tu sala de estar. Esta mesa combina a la perfección el encanto rústico de la madera maciza con la robustez del metal. Su diseño industrial moderno y sus líneas limpias la convierten en el centro de atención de cualquier espacio. Perfecta para disfrutar de momentos relajantes con familiares y amigos. ¡Agrega un toque de estilo a tu hogar con esta mesa ratona de inspiración industrial!"
+
+        ,
 
         img1: mesaRatonaIndustrial1,
         img2: mesaRatonaIndustrial2,
@@ -70,38 +72,38 @@ export const products = [
         id: "7",
         title: 'Taburete Banqueta de Hierro y Madera',
         categoriaPadre: "muebles",
-        category: 'taburetes', 
+        category: 'taburetes',
         description: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.' +
-            'Ideal para desayunador, barra, quinchos, bar.' +
-            'Fabricadas con estructura de hierro 20/20 y madera maciza de pino de 2 cm de espesor.' +
-            'Terminación con 3 manos de Cetol protector elástico para todo tipo de maderas.',
+          'Ideal para desayunador, barra, quinchos, bar.' +
+          'Fabricadas con estructura de hierro 20/20 y madera maciza de pino de 2 cm de espesor.' +
+          'Terminación con 3 manos de Cetol protector elástico para todo tipo de maderas.',
         previewDescription: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.',
         img1: tabureteHierroMadera1,
         img2: tabureteHierroMadera2
-    },
-    {
+      },
+      {
         id: "8",
         title: 'Lámpara estilo industrial rectangular',
         categoriaPadre: "diseño",
         category: 'lamparas',
-        description: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.'
-            + ' Con su diseño moderno y acabado metálico, proporciona una iluminación directa y focalizada para resaltar cualquier espacio. ' +
-            ' Fácil de instalar y versátil en su uso, esta lámpara es perfecta para cualquier ambiente contemporáneo.',
-        previewDescription: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.',
+        description: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.' 
+          + ` Con su diseño moderno y acabado metálico, proporciona una iluminación directa y focalizada para resaltar cualquier espacio. ` +
+          ' Fácil de instalar y versátil en su uso, esta lámpara es perfecta para cualquier ambiente contemporáneo.',
+        previewDescription: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.',
         img1: lamparaIndustrialRectangular1,
         img2: lamparaIndustrialRectangular2
-    },
-    {
+      },
+      {
         id: "9",
         title: 'Escritorio estilo industrial',
         categoriaPadre: "muebles",
         category: 'escritorios',
         description: '¡Escritorio estilo industrial con dos estantes en venta! Funcional y elegante, este escritorio de alta calidad combina metal negro y madera natural para un aspecto moderno y robusto. Con dos estantes adicionales, ofrece espacio de almacenamiento extra para mantener tus cosas organizadas. Contáctanos ahora para más información.',
-        previewDescription: 'Banquetas Taburetes de diseño estilo industrial fabricados artesanalmente en hierro y madera.',
+        previewDescription: '¡Escritorio estilo industrial con dos estantes en venta! Funcional y elegante, este escritorio de alta calidad combina metal negro y madera natural para un aspecto moderno y robusto.',
         caracteristicas: 'Medidas: 100cm de ancho, 45cm de profundidad y 75cm de altura',
         img1: escritorioIndustrial1,
         img2: escritorioIndustrial2
-    },
+      },
 ];
 
 export default products;
