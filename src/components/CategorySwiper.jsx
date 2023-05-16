@@ -39,7 +39,7 @@ const CategorySwiper = () => {
 
             <Link to='/catalogo?category=taburetes' className="category-container">
                 <img src={Taburete} alt="" />
-                <b>Taburete</b>
+                <b>Taburetes</b>
             </Link>
 
             <Link to='/catalogo?category=toalleros' className="category-container">
