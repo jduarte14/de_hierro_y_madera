@@ -123,6 +123,7 @@ img {
     font-size: 1em;
     max-width: 450px;
     line-height: 1.5;
+    color:var(--black);
 }
 
 .product-wrapper .swiper-wrapper {

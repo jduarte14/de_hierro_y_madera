@@ -86,22 +86,23 @@ const ProductCatalog = () => {
 
                         {
                             filteredProducts.map((producto) => {
-                                return <div className="product-container" key={producto.id} category={producto.category}>
+                                return <Link to={`/productos/${producto.id}`} className="product-container" key={producto.id} category={producto.category}>
                                     <img src={producto.img1} alt="img-product" />
                                     <div className="catalog-info">
-                                        <Link to={`/productos/${producto.id}`}>
+                                        <b className="title">
                                             {producto.title}
-                                        </Link>
+                                        </b>
+
+
                                         <span>{producto.previewDescription}</span>
                                     </div>
-
-                                </div>
+                                </Link>
                             })
                         }
                     </div>
                 </>
             </div>
-        </div>
+        </div >
     )
 
 }

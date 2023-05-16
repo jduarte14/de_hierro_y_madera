@@ -31,11 +31,13 @@
     flex-direction: column;
 }
 
-.catalog-info a {
+.catalog-info .title,
+.product-list .title {
     color: black;
     text-decoration: none;
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin: 10px 0 5px;
+    text-transform:uppercase;
 }
 
 .product-container {
@@ -56,6 +58,7 @@
 
 .product-container span {
     line-height: 1.5;
+    color:var(--black);
 }
 
 

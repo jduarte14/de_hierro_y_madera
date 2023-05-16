@@ -12,10 +12,10 @@ const ProductSwiper1 = ({ categoriaPadre }) => {
   return (
     <div className="home-content">
       <div className="group_title">
-      <h1>{categoriaPadre}</h1>
-      <hr />
+        <h1>{categoriaPadre}</h1>
+        <hr />
       </div>
-      
+
       <Swiper spaceBetween={35}
         modules={[Navigation]}
         navigation
@@ -40,18 +40,20 @@ const ProductSwiper1 = ({ categoriaPadre }) => {
           filteredProducts.map((product) => {
             return <SwiperSlide key={product.id} >
               <div className="product-wrapper" >
+                <Link to={`/productos/${product.id}`}>
+                  <div className="product-img">
+                    <img src={product.img1} alt="" />
 
-                <div className="product-img">
-                  <img src={product.img1} alt="" />
+                  </div>
 
-                </div>
+                  <div className="product-list">
+                    <b className="title" >
+                      {product.title}
+                    </b>
+                    <span>{product.previewDescription}</span>
+                  </div>
 
-                <div className="product-list">
-                  <Link to={`/productos/${product.id}`}>
-                    {product.title}
-                  </Link>
-                  <span>{product.previewDescription}</span>
-                </div>
+                </Link>
               </div>
             </SwiperSlide>
 

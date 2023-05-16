@@ -1,4 +1,4 @@
-import layout from './css/header.css';
+import './css/header.css';
 
 import Carrito from './../img/categorias/carrito.svg';
 import logo from './../img/logo.svg'
@@ -27,7 +27,7 @@ const Header = () => {
     }
 
     return (
-        <div className="header">
+        <header className="header">
 
             <div className="header-wrapper">
                 <div className="menu-mobile" onClick={ToggleClass}>
@@ -98,7 +98,7 @@ const Header = () => {
                 </div>
             </div>
 
-        </div>
+        </header>
     )
 }
 
