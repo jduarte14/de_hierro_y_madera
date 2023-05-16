@@ -11,7 +11,7 @@ const HomeContent = () => {
             <div className="home-wrapper">
                 <CategorySwiper />
                 <ProductSwiper1 categoriaPadre="muebles"/>
-                <ProductSwiper1  categoriaPadre="diseño"/>
+                <ProductSwiper1  categoriaPadre="luminaria"/>
             </div>
 
         </>

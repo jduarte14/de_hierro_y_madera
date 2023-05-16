@@ -29,7 +29,7 @@ export const products = [
   {
     id: "2",
     title: 'Lampara Piramide',
-    categoriaPadre: "diseño",
+    categoriaPadre: "luminaria",
     category: 'lamparas',
     previewDescription: 'La lámpara pirámide de estilo industrial es una pieza de iluminación, construida con materiales robustos como metal y acero',
     description: 'La lámpara pirámide de estilo industrial es una pieza de iluminación única y llamativa, con forma piramidal y construida con materiales robustos como metal y acero. Su diseño combina elementos modernos y rústicos, con líneas rectas y ángulos pronunciados que evocan la estética industrial.',
@@ -84,7 +84,7 @@ export const products = [
   {
     id: "8",
     title: 'Lámpara estilo industrial rectangular',
-    categoriaPadre: "diseño",
+    categoriaPadre: "luminaria",
     category: 'lamparas',
     description: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.'
       + ` Con su diseño moderno y acabado metálico, proporciona una iluminación directa y focalizada para resaltar cualquier espacio. ` +
