@@ -139,7 +139,7 @@ const ProductCard = () => {
                             <div className="pp-close" onClick={closePopup}>
                                 <GrFormClose />
                             </div>
-                            <h2> Contactanos por email </h2>
+                            <h2> Contactanos por correo </h2>
                             <form id="contact-mail" onSubmit={useMailPopUp} >
                                 <input type="text" placeholder="Nombre completo" name='user_name' ref={name} required />
                                 <input type="text" placeholder="Mail" name='user_email' ref={mail} required />
