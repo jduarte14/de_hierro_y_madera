@@ -73,7 +73,7 @@
     transition:0.5s ease;
     position:relative;
     line-height: 1.5;
-    height:20px;
+    height:25px;
     transition:0.3s ease;
 }
 
@@ -144,5 +144,8 @@
     .btnConsultar {
         padding:8px ;
         font-size: 13px;
+    }
+    .dropdown {
+        height:30px;
     }
 }

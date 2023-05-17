@@ -77,10 +77,10 @@ const Header = () => {
                                         <Link to="/catalogo?category=mesas">Mesas</Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=sillas">Sillas</Link>
+                                        <Link to="/catalogo?category=escritorios">Escritorios</Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=escritorios">Escritorios</Link>
+                                        <Link to="/catalogo?category=sillas">Sillas</Link>
                                     </li>
                                     <li>
                                         <Link to="/catalogo?category=taburetes">Taburetes</Link>

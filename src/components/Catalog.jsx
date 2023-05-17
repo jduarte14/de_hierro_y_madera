@@ -53,8 +53,8 @@ const ProductCatalog = () => {
                         <h4> Filtros </h4>
                         <b>Muebles: </b>
                         <button onClick={() => handleFilterChange('mesas')}>Mesas </button>
-                        <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
                         <button onClick={() => handleFilterChange('escritorios')}>Escritorios </button>
+                        <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
                         <button onClick={() => handleFilterChange('taburetes')}>Taburetes </button>
                         <button onClick={() => handleFilterChange('toalleros')}>Toalleros </button>
                         <b>Luminaria:</b>
@@ -73,8 +73,8 @@ const ProductCatalog = () => {
 
                     <div id="category-container">
                         <button onClick={() => handleFilterChange('mesas')}>Mesas </button>
-                        <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
                         <button onClick={() => handleFilterChange('escritorios')}>Escritorios </button>
+                        <button onClick={() => handleFilterChange('sillas')}>Sillas</button>
                         <button onClick={() => handleFilterChange('taburetes')}>Taburetes </button>
                         <button onClick={() => handleFilterChange('toalleros')}>Toalleros </button>
                     </div>
