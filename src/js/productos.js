@@ -1,5 +1,4 @@
-//diseño
-import lamparaPiramide1 from '../productos/lampara-piramide-1.jpg';
+//luminaria
 import lamparaIndustrialRectangular1 from '../productos/lampara-industrial-rectangular-1.jpg'
 import lamparaIndustrialRectangular2 from '../productos/lampara-industrial-rectangular-2.jpg'
 
@@ -28,15 +27,6 @@ export const products = [
   },
   {
     id: "2",
-    title: 'Lampara Piramide',
-    categoriaPadre: "luminaria",
-    category: 'lamparas',
-    previewDescription: 'La lámpara pirámide de estilo industrial es una pieza de iluminación, construida con materiales robustos como metal y acero',
-    description: 'La lámpara pirámide de estilo industrial es una pieza de iluminación única y llamativa, con forma piramidal y construida con materiales robustos como metal y acero. Su diseño combina elementos modernos y rústicos, con líneas rectas y ángulos pronunciados que evocan la estética industrial.',
-    img1: lamparaPiramide1,
-  },
-  {
-    id: "3",
     title: 'Mesa Ratona para living',
     categoriaPadre: "muebles",
     category: 'mesas',
@@ -45,17 +35,18 @@ export const products = [
     img1: mesaRatona1,
   },
   {
-    id: "4",
-    title: 'Silla de barra',
+    id: "3",
+    title: 'Banqueta de barra estilo industrial ',
     category: 'sillas',
     categoriaPadre: "muebles",
-    previewDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam corrupti quasi harum deleniti at quam ea, quis adipisci. Veniam, esse',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam corrupti quasi harum deleniti at quam ea, quis adipisci. Veniam, esse',
+    previewDescription: 'banqueta de barra estilo industrial. Fabricada con hierro resistente y un acabado en pintura negra mate,',
+    description: 'banqueta de barra estilo industrial. Fabricada con hierro resistente y un acabado en pintura negra mate, combina a la perfección el estilo moderno con la comodidad.',
+    caracteristicas:'medidas 80cm de altura , 31 de ancho',
     img1: silla1,
     img2: silla2,
   },
   {
-    id: "6",
+    id: "4",
     title: 'Mesa Ratona de hierro ',
     categoriaPadre: "muebles",
     category: 'mesas',
@@ -69,7 +60,7 @@ export const products = [
     img3: mesaRatonaIndustrial3,
   },
   {
-    id: "7",
+    id: "5",
     title: 'Taburete Banqueta de Hierro y Madera',
     categoriaPadre: "muebles",
     category: 'taburetes',
@@ -82,19 +73,18 @@ export const products = [
     img2: tabureteHierroMadera2
   },
   {
-    id: "8",
+    id: "6",
     title: 'Lámpara estilo industrial rectangular',
     categoriaPadre: "luminaria",
     category: 'lamparas',
-    description: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.'
-      + ` Con su diseño moderno y acabado metálico, proporciona una iluminación directa y focalizada para resaltar cualquier espacio. ` +
-      ' Fácil de instalar y versátil en su uso, esta lámpara es perfecta para cualquier ambiente contemporáneo.',
+    description: '¡Ilumina tu hogar con estilo industrial! Lámpara rectangular en oferta. ¡Compra ahora y dale un toque único a tu espacio!',
     previewDescription: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.',
+    caracteristicas:'Medidas 45x26 en caño de 40x40 base de madera masiza , porta lamparas e37, no incluye focos',
     img1: lamparaIndustrialRectangular1,
     img2: lamparaIndustrialRectangular2
   },
   {
-    id: "9",
+    id: "7",
     title: 'Escritorio estilo industrial',
     categoriaPadre: "muebles",
     category: 'escritorios',
