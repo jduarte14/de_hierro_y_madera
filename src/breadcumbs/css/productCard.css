@@ -115,6 +115,9 @@
 }
 
 @media (min-width:1024px) {
+    .btnConsultar {
+        width:300px;
+    }
     .product-info p {
         max-width:470px;
     }
