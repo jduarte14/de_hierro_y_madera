@@ -117,10 +117,13 @@ const ProductCard = () => {
                 <div className="product-info">
                     <h1>{product.title}</h1>
                     <p>{product.description}</p>
-                    <div className="btns-container">
-                        <a className="btnConsultar" href={whatsapp} target="_blank"> Consultar <FaWhatsapp /> </a>
-                        <button className="btnConsultar" onClick={openPopup}> Envianos un mail <AiOutlineMail /> </button>
+                    <div className="fixed-row">
+                        <div className="btns-container">
+                            <a className="btnConsultar" href={whatsapp} target="_blank"> Consultar <FaWhatsapp /> </a>
+                            <button className="btnConsultar" onClick={openPopup}> Envianos un mail <AiOutlineMail /> </button>
+                        </div>
                     </div>
+
 
                     {product.caracteristicas != null ?
                         <div className={`dropdown ${dropdown ? 'active' : ''}`} onClick={useDropdown}>

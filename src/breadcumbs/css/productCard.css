@@ -131,6 +131,19 @@
 }
 
 @media (max-width:1023px){
+    .fixed-row {
+        position: fixed;
+        background: var(--white);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+        z-index: 4;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
     .product-img {
         max-width:300px;
     }

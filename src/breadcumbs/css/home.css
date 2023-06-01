@@ -147,6 +147,7 @@ img {
     border-radius: 5px;
     text-decoration: unset;
     transition: 0.3s ease;
+    font-weight:bold;
 }
 
 .btn-banner:hover {
@@ -351,6 +352,11 @@ img {
         position: relative;
     }
 
+    .principal-banner .info p {
+        max-width:500px;
+        font-size:17px;
+        line-height:1.5;
+    }
     .principal-first::after {
         background: var(--neutral);
         top: 0;
@@ -389,10 +395,17 @@ img {
         margin-bottom: 30px;
     }
 
+    .info h4{
+        margin-bottom:20px;
+        margin-top:20px;
+    }
 }
 
 @media (max-width:1023px) {
 
+    .info h4 {
+        display:none;
+    }
 
     .category-wrapper {
         display:grid;
@@ -457,6 +470,7 @@ img {
     .info h4 {
         font-size: 1em;
         line-height: 1.5;
+  
     }
 
     .principal-banner .info {
@@ -529,6 +543,10 @@ img {
         height: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
+    }
+    .info p {
+        font-size:12px;
+        line-height: 1.5;
     }
 }
 

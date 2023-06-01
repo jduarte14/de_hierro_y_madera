@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiper from '../breadcumbs/css/swiper.css'
 import { Pagination, EffectFade } from 'swiper';
-
+import {Link} from 'react-router-dom';
 
 //Swiper CSS
 import 'swiper/css/pagination';
@@ -25,15 +25,17 @@ const HomeSwiper = () => {
       >
         <SwiperSlide>
           <div className="principal-banner">
-          <div className="info">
-              <h1>Lorem ipsum dolor sit amet.</h1>
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ipsa ratione, dolores quasi sapiente id.</h4>
-              <a className="btn-banner" href="">lorem arreder</a>
+            <div className="info">
+              <h1>Muebles de Diseño Industrial</h1>
+              <h4>Combinando Funcionalidad y Estilo en Armonía</h4>
+              <p>Descubre nuestra exclusiva colección de productos de diseño industrial, 
+                donde la funcionalidad se encuentra con un estilo distintivo.</p>
+              <Link to="/catalogo" className="btn-banner">Visitar Catalogo</Link>
             </div>
-            <img className="img-contianer desktop" src={imgBanner} alt="" /> 
+            <img className="img-contianer desktop" src={imgBanner} alt="" />
             <img className="img-container mobile" src={imgBannerMobile} alt="" />
           </div>
-          </SwiperSlide>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
