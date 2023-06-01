@@ -79,7 +79,7 @@ export const products = [
     category: 'lamparas',
     description: '¡Ilumina tu hogar con estilo industrial! Lámpara rectangular en oferta. ¡Compra ahora y dale un toque único a tu espacio!',
     previewDescription: 'Agrega un toque de sofisticación a tu hogar u oficina con esta lámpara estilo industrial rectangular.',
-    caracteristicas:'Medidas 45x26 en caño de 40x40 base de madera masiza , porta lamparas e27, no incluye focos',
+    caracteristicas:'Medidas 45x26 en caño de 40x40 base de madera maciza , porta lamparas e27, no incluye focos',
     img1: lamparaIndustrialRectangular1,
     img2: lamparaIndustrialRectangular2
   },
