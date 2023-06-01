@@ -77,7 +77,7 @@ const ProductCard = () => {
     const product = productos.find(product => product.id === id);
     let phone = 59899323702;
     let url = window.location.href;
-    let whatsapp = `https://api.whatsapp.com/send/?phone=${phone}&text=Hola+tengo+una+consulta+sobre+${product.title}+con+descripcion+${product.description}+de+url+${url}`;
+    let whatsapp = `https://api.whatsapp.com/send/?phone=${phone}&text=Hola+tengo+una+consulta+sobre+${product.title}+de+url+${url}`;
 
     const checkImages = () => {
         let images = document.querySelectorAll('.product-img .swiper-slide img');
