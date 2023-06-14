@@ -117,18 +117,18 @@ const DashboardCatalog = ({ productData }) => {
         <div className="form-container">
           <form onSubmit={createData}> 
             <h2>Crear producto</h2>
-            <input type="text" placeholder="nombre de producto" required ref={nombreRef} />
-            <textarea placeholder="descripcion" required ref={descripcionRef} />
-            <input type="text" placeholder="descripcion corta" required ref={descripcionCortaRef} />
-            <input type="text" placeholder="categoria padre" required ref={categoriaPadreRef} />
-            <input type="text" placeholder="categoria hija" required ref={categoriaHijaRef} />
-            <input type="text" placeholder="caracteristicas" name="caracteristicas" ref={caracteristicasRef} required />
+            <input type="text" placeholder="nombre de producto" name="nombre"  ref={nombreRef} required />
+            <textarea placeholder="descripcion" name="descripcion"  ref={descripcionRef} required/>
+            <input type="text" placeholder="descripcion corta" name="descripcionCorta" ref={descripcionCortaRef} required/>
+            <input type="text" placeholder="categoria padre" name="categoriaPadre" ref={categoriaPadreRef} required/>
+            <input type="text" placeholder="categoria hija" name="categoria" ref={categoriaHijaRef} required/>
+            <input type="text" placeholder="caracteristicas" required name="caracteristicas" ref={caracteristicasRef} />
             <b>Imagen principal: (obligatoria)</b>
-            <input type="file" placeholder="agrega imagen primaria" required ref={imagenPrincipalRef} />
+            <input type="file" placeholder="agrega imagen primaria" name="imagen" required ref={imagenPrincipalRef} />
             <b>Imagen secundaria</b>
-            <input type="file" placeholder="agrega imagen secundaria" ref={imagenSecundariaRef} />
+            <input type="file" placeholder="agrega imagen secundaria" name="imagen2" ref={imagenSecundariaRef} />
             <b>Imagen tercearia</b>
-            <input type="file" placeholder="agrega imagen terciaria" ref={imagenTerciariaRef} />
+            <input type="file" placeholder="agrega imagen terciaria" name="imagen3" ref={imagenTerciariaRef} />
             <input type="submit" id="btnEnviar" value="Crear producto" />
           </form>
         </div>
