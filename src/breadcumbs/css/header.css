@@ -1,15 +1,4 @@
-:root {
-    --brown: #2d1d13;
-    --white: #ffff;
-    --red: #ef4444;
-    --neutral: #fafaf9;
-    --border: #ededed;
-    --weightBorder :#d3d3d3;
-    --black: #000;
-    --color1:#d9bca9;
-    --gray:#f1f1f1;
-    --gray2:#f5f5f4;
-}
+
 
 .header {
     width: 100%;

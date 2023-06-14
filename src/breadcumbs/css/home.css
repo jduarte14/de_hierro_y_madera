@@ -256,6 +256,8 @@ img {
     text-transform: uppercase;
 }
 
+
+
 @media (min-width:1024px) {
     body:has(.home-wrapper) {
         background: #f1f1f1;

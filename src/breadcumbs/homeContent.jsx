@@ -3,15 +3,14 @@ import CategorySwiper from '../components/CategorySwiper';
 import ProductSwiper1 from '../components/ProductSwiper1';
 import './css/home.css';
 
-const HomeContent = () => {
-
+const HomeContent = ({productData}) => {
     return (
         <>
             <HomeSwiper />
             <div className="home-wrapper">
                 <CategorySwiper />
-                <ProductSwiper1 categoriaPadre="muebles"/>
-                <ProductSwiper1  categoriaPadre="luminaria"/>
+                <ProductSwiper1 product={productData} categoriaPadre="muebles"/>
+                <ProductSwiper1 product={productData} categoriaPadre="luminaria"/>
             </div>
 
         </>

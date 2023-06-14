@@ -51,9 +51,7 @@ export const products = [
     categoriaPadre: "muebles",
     category: 'mesas',
     previewDescription: 'Mesa Ratona Estilo Industrial: Encanto rústico y diseño industrial en una sola pieza. Combina madera maciza y metal para destacar en tu sala de estar.',
-    description: " Esta mesa combina a la perfección el encanto rústico de la madera maciza con la robustez del metal. "
-
-    ,
+    description: " Esta mesa combina a la perfección el encanto rústico de la madera maciza con la robustez del metal. ",
 
     img1: mesaRatonaIndustrial1,
     img2: mesaRatonaIndustrial2,

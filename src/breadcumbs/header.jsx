@@ -7,7 +7,7 @@ import { FcMenu } from 'react-icons/fc';
 import React, { useEffect } from 'react';
 import { ToggleClass } from './../js/ToggleClass';
 
-const Header = () => {
+const Header = ({ logged }) => {
     useEffect(() => {
         window.addEventListener("scroll", isFixed);
     });
@@ -51,6 +51,9 @@ const Header = () => {
                                     <li>
                                         <Link to="/catalogo?category=lamparas">Luminaria</Link>
                                     </li>
+                                    {
+                                        logged ? <li> <Link to="/admin"> Administrar sitio</Link></li> : null
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -92,12 +95,15 @@ const Header = () => {
                             </li>
                             <li id="drop-down" className="dropdown-catalogo">
                                 <Link to="/catalogo">Luminaria</Link>
-                                <ul>    
+                                <ul>
                                     <li>
                                         <Link to="/catalogo?category=lamparas">Lamparas</Link>
                                     </li>
                                 </ul>
                             </li>
+                            {
+                                logged ? <li> <Link to="/admin"> Administrar sitio</Link></li> : null
+                            }
                         </ul>
                     </div>
 
