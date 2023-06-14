@@ -64,7 +64,7 @@ function App() {
         <Route exact path="/productos/:id" element={<ProductCard productInfo={product} />} />
         <Route exact path="/catalogo" element={<ProductCatalog productData={product}/>} />
         <Route exact path="/login" element={<Login/>}/>
-        <Route exact path="/sitemap" element={<SiteMap/>}/>
+        <Route exact path="/sitemap.xml" element={<SiteMap/>}/>
         {
           logged ? <Route exact path="/admin" element={<Dashboard />} /> : <Route exact path="/admin" element={<Error />} />
         }
