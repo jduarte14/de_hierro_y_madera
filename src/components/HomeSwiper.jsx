@@ -32,7 +32,7 @@ const HomeSwiper = () => {
                 donde la funcionalidad se encuentra con un estilo distintivo.</p>
               <Link to="/catalogo" className="btn-banner">Visitar Catalogo</Link>
             </div>
-            <img className="img-contianer desktop" src={imgBanner} alt="" />
+            <img className="img-container desktop" src={imgBanner} alt="" />
             <img className="img-container mobile" src={imgBannerMobile} alt="" />
           </div>
         </SwiperSlide>

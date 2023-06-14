@@ -9,6 +9,7 @@ import Error from './components/Error';
 import Dashboard from './components/dashboard/dashboard';
 import DashboardCatalog from './components/dashboard/catalog';
 import Login from './components/auth/login';
+import SiteMap from './sitemap.xml';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
         <Route exact path="/productos/:id" element={<ProductCard productInfo={product} />} />
         <Route exact path="/catalogo" element={<ProductCatalog productData={product}/>} />
         <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/sitemap" element={<SiteMap/>}/>
         {
           logged ? <Route exact path="/admin" element={<Dashboard />} /> : <Route exact path="/admin" element={<Error />} />
         }
