@@ -149,7 +149,7 @@ const DashboardCatalog = ({ productData }) => {
             <b>Categoria hija</b>
             <input type="text" placeholder="categoria hija" name="categoria" defaultValue={selectedProduct.categoria} ref={categoriaHijaRef} required />
             {selectedProduct.caracteristicas ? (
-              <input type="text" placeholder="caracteristicas" name="caracteristicas" ref={caracteristicasRef} defaultValue={selectedProduct.caracteristicas} required />
+              <input type="text" placeholder="caracteristicas" name="caracteristicas" ref={caracteristicasRef} defaultValue={selectedProduct.caracteristicas} />
             ) : null}
             <b>Imagen principal:</b>
             <input type="file" ref={imagenPrincipalRef} name="imagen" />
