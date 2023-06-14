@@ -9,7 +9,7 @@ import Error from './components/Error';
 import Dashboard from './components/dashboard/dashboard';
 import DashboardCatalog from './components/dashboard/catalog';
 import Login from './components/auth/login';
-import SiteMap from './sitemap.xml';
+import SiteMap from './components/sitemap';
 
 
 function App() {
