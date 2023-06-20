@@ -16,7 +16,7 @@ const DashboardCatalog = ({ productData }) => {
   const imagenTerciariaRef = useRef();
   const caracteristicasRef = useRef();
 
-  const createData = async (e) => { 
+  const createData = async (e) => {
     e.preventDefault();
     const createUrl = `https://dehierroymaderabackend-production.up.railway.app/api/products/`;
     const formData = new FormData();
@@ -31,8 +31,9 @@ const DashboardCatalog = ({ productData }) => {
     formData.append("imagen3", imagenTerciariaRef.current.files[0]);
     try {
       const response = await fetchData(createUrl, "POST", formData);
+      const newProduct = response.data;
+      setUpdatedProduct([...updatedProduct, newProduct]);
       alert(response.message);
-      window.location.reload();
     }
     catch (error) {
       throw new Error(error.message);
@@ -52,16 +53,23 @@ const DashboardCatalog = ({ productData }) => {
     formData.append("imagen", imagenPrincipalRef.current.files[0]);
     formData.append("imagen2", imagenSecundariaRef.current.files[0]);
     formData.append("imagen3", imagenTerciariaRef.current.files[0]);
-
+    
     if (selectedProduct.caracteristicas) {
       formData.append("caracteristicas", caracteristicasRef.current.value);
     }
 
     try {
       const response = await fetchData(PutUrl, "PUT", formData);
+      const updatedProductIndex = updatedProduct.findIndex(
+        (product) => product._id === selectedProduct._id
+      );
+      const updatedProductList = [...updatedProduct];
+      updatedProductList[updatedProductIndex] = response.data;
+
+      setUpdatedProduct(updatedProductList);
       alert(response.message);
       closeEdit();
-      window.location.reload();
+
     }
 
     catch (error) {
@@ -74,14 +82,17 @@ const DashboardCatalog = ({ productData }) => {
     const deleteUrl = `https://dehierroymaderabackend-production.up.railway.app/api/products/${id}`;
     try {
       const response = await fetchData(deleteUrl, "DELETE");
+      const updatedProductList = updatedProduct.filter(
+        (product) => product._id !== id
+      );
+      setUpdatedProduct(updatedProductList);
       alert(response.message);
-      window.location.reload();
     }
 
     catch (error) {
       throw new Error(error.message);
     }
-   }
+  }
 
   const handleEdit = (producto) => {
     setSelectedProduct(producto);
@@ -107,7 +118,7 @@ const DashboardCatalog = ({ productData }) => {
               <span>{producto.descripcionCorta}</span>
               <div className="button-row">
                 <button onClick={() => handleEdit(producto)}>Editar producto</button>
-                <button onClick={()=>deleteData(producto._id)}>Eliminar producto</button>
+                <button onClick={() => deleteData(producto._id)}>Eliminar producto</button>
               </div>
             </div>
           </div>
@@ -115,13 +126,13 @@ const DashboardCatalog = ({ productData }) => {
       </div>
       <div className="form-create">
         <div className="form-container">
-          <form onSubmit={createData}> 
+          <form onSubmit={createData}>
             <h2>Crear producto</h2>
-            <input type="text" placeholder="nombre de producto" name="nombre"  ref={nombreRef} required />
-            <textarea placeholder="descripcion" name="descripcion"  ref={descripcionRef} required/>
-            <input type="text" placeholder="descripcion corta" name="descripcionCorta" ref={descripcionCortaRef} required/>
-            <input type="text" placeholder="categoria padre" name="categoriaPadre" ref={categoriaPadreRef} required/>
-            <input type="text" placeholder="categoria hija" name="categoria" ref={categoriaHijaRef} required/>
+            <input type="text" placeholder="nombre de producto" name="nombre" ref={nombreRef} required />
+            <textarea placeholder="descripcion" name="descripcion" ref={descripcionRef} required />
+            <input type="text" placeholder="descripcion corta" name="descripcionCorta" ref={descripcionCortaRef} required />
+            <input type="text" placeholder="categoria padre" name="categoriaPadre" ref={categoriaPadreRef} required />
+            <input type="text" placeholder="categoria hija" name="categoria" ref={categoriaHijaRef} required />
             <input type="text" placeholder="caracteristicas" required name="caracteristicas" ref={caracteristicasRef} />
             <b>Imagen principal: (obligatoria)</b>
             <input type="file" placeholder="agrega imagen primaria" name="imagen" required ref={imagenPrincipalRef} />
