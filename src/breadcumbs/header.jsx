@@ -49,19 +49,19 @@ const Header = ({ logged }) => {
                                         <Link to="/catalogo?category=mesas">Mesas </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=mesas">Escritorios </Link>
+                                        <Link to="/catalogo?category=escritorios">Escritorios </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=mesas">Sillas </Link>
+                                        <Link to="/catalogo?category=sillas">Sillas </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=mesas">Taburetes </Link>
+                                        <Link to="/catalogo?category=taburetes">Taburetes </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=mesas">Toalleros </Link>
+                                        <Link to="/catalogo?category=toalleros">Toalleros </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=lamparas">Luminaria</Link>
+                                        <Link to="/catalogo?category=luminaria">Luminaria</Link>
                                     </li>
                                     {
                                         logged ? <li> <Link to="/admin"> Administrar sitio</Link></li> : null
