@@ -5,7 +5,7 @@ const Login = () => {
     const passwordRef = useRef();
     const emailRef = useRef();
 
-    const createUser = async (e) => {
+    const LogUser = async (e) => {
         e.preventDefault();
         const userData = new URLSearchParams();
         userData.append("name", nameRef.current.value);
@@ -13,7 +13,7 @@ const Login = () => {
         userData.append("email", emailRef.current.value);
 
         try {
-            const response = await fetch("https://dehierroymaderabackend-production.up.railway.app/auth/user", {
+            const response = await fetch("https://dehierroymaderabackend-production.up.railway.app/auth/user/login", {
                 method: "POST",
                 body: userData,
                 headers: {
@@ -28,11 +28,13 @@ const Login = () => {
                 sessionStorage.setItem("auth_id", id);
                 window.location.href = "/";
             }
-            throw new Error("No se pudo crear el usuario");
+            alert("No se han ingresado las credenciales correctamente o no existe el usuario");
+            throw new Error("No se pudo loguear el usuario");
 
         }
         catch (error) {
             throw new Error(error.message);
+           
         }
     }
 
@@ -40,7 +42,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <form onSubmit={createUser}>
+            <form onSubmit={LogUser}>
                 <label>Login</label>
                 <input type="text" placeholder="Name" name="name" required ref={nameRef} />
                 <input type="email" placeholder="Email" name="Email" required ref={emailRef} />

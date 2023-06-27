@@ -46,7 +46,19 @@ const Header = ({ logged }) => {
                                         <Link to="/catalogo">Catalogo </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalogo?category=muebles">Muebles </Link>
+                                        <Link to="/catalogo?category=mesas">Mesas </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=mesas">Escritorios </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=mesas">Sillas </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=mesas">Taburetes </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalogo?category=mesas">Toalleros </Link>
                                     </li>
                                     <li>
                                         <Link to="/catalogo?category=lamparas">Luminaria</Link>
