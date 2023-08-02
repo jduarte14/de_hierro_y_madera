@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import productos from './../js/productos'
 import { Link } from 'react-router-dom';
 import { Navigation, Loop } from 'swiper';
-import { getProductsByCategory } from './../js/productos';
+
 import 'swiper/css';
 
 const ProductSwiper1 = ({ categoriaPadre, product }) => {
@@ -10,9 +9,6 @@ const ProductSwiper1 = ({ categoriaPadre, product }) => {
   const filteredProducts = product.filter(
     (product) => product.categoriaPadre === categoriaPadre
   );
-  console.log(filteredProducts);
-
-
   return (
     <div className="home-content">
       <div className="group_title">

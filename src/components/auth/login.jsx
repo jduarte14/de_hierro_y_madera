@@ -27,14 +27,16 @@ const Login = () => {
                 let id = data.name;
                 sessionStorage.setItem("auth_id", id);
                 window.location.href = "/";
+            } else {
+                alert("No se han ingresado las credenciales correctamente o no existe el usuario");
+                throw new Error("No se pudo loguear el usuario");
             }
-            alert("No se han ingresado las credenciales correctamente o no existe el usuario");
-            throw new Error("No se pudo loguear el usuario");
+
 
         }
         catch (error) {
             throw new Error(error.message);
-           
+
         }
     }
 
