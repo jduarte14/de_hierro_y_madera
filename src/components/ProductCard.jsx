@@ -1,34 +1,28 @@
 import { useParams } from "react-router-dom";
-import React, { useEffect, useState, useRef } from 'react';
-import emailjs from 'emailjs-com';
-
-// Import Swiper
+import React, { useEffect, useState, useRef, Suspense  } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
-// CSS Card
+//import MailPopUp from "./mailPopUp";
 import './../breadcumbs/css/mailPopUp.css';
 import './../breadcumbs/css/productCard.css';
 import { FaWhatsapp } from 'react-icons/fa';
-import { GrFormClose } from 'react-icons/gr';
 import { AiOutlineMail } from 'react-icons/ai';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
-// CSS Swiper
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const ProductCard = () => {
+    const MailPopUp = React.lazy(() => import('./mailPopUp'));
+
     const [dropdown, setDropdown] = useState(true);
     const [mailPopUp, setPopUpMail] = useState(false);
     const [product, setProduct] = useState(null);
-    const name = useRef();
-    const mail = useRef();
-    const message = useRef();
-    const phoneNumber = useRef();
+
     const productImagen1 = useRef();
     const productImagen2 = useRef();
     const productImagen3 = useRef();
-
+ 
     const useDropdown = () => {
         setDropdown(!dropdown);
     };
@@ -53,42 +47,11 @@ const ProductCard = () => {
         fetchData();
     }, [id]);
 
-    const useMailPopUp = (e) => {
-        e.preventDefault();
-        const { _id, nombre } = product;
-
-        const templateParams = {
-            user_name: name.current.value,
-            user_email: mail.current.value,
-            user_message: message.current.value,
-            user_phone: phoneNumber.current.value,
-            product_title: nombre,
-            product_id: _id,
-            product_href: window.location.href
-        };
-
-        try {
-            emailjs.send('service_ogq8ndd', 'template_5nqxx31', templateParams, 'u9cW9vw43bAysSCD4')
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Mensaje enviado correctamente, ya nos pondremos en contacto contigo');
-                    closePopup();
-                })
-                .catch(function (error) {
-                    console.log('FAILED...', error);
-                });
-        } catch (error) {
-            console.log('Error en el bloque try:', error);
-        }
+    const handlePopUp = () => {
+        mailPopUp ? setPopUpMail(false) : setPopUpMail(true);
     };
 
-    const openPopup = () => {
-        setPopUpMail(true);
-    };
-
-    const closePopup = () => {
-        setPopUpMail(false);
-    };
+ 
 
     useEffect(() => {
         document.body.classList.add('product-card');
@@ -138,7 +101,7 @@ const ProductCard = () => {
                                 <a className="btnConsultar" href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola+tengo+una+consulta+sobre+${product.nombre}+de+url+${url}`} target="_blank" rel="noopener noreferrer">
                                     Consultar <FaWhatsapp />
                                 </a>
-                                <button className="btnConsultar" onClick={openPopup}>
+                                <button className="btnConsultar" onClick={handlePopUp}>
                                     Envianos un mail <AiOutlineMail />
                                 </button>
                             </div>
@@ -160,24 +123,9 @@ const ProductCard = () => {
             )}
 
             {mailPopUp && (
-                <>
-                    <div className={`pp-overlay ${mailPopUp ? 'fade-in' : 'fade-out'}`} onClick={closePopup} />
-                    <div className="pp-container">
-                        <div className={`pp-content ${mailPopUp ? 'fade-in' : 'fade-out'}`}>
-                            <div className="pp-close" onClick={closePopup}>
-                                <GrFormClose />
-                            </div>
-                            <h2>Contactanos por correo</h2>
-                            <form id="contact-mail" onSubmit={useMailPopUp}>
-                                <input type="text" placeholder="Nombre completo" name="user_name" ref={name} required />
-                                <input type="text" placeholder="Mail" name="user_email" ref={mail} required />
-                                <input type="number" placeholder="Número" name="user_phone" ref={phoneNumber} required />
-                                <textarea rows="8" placeholder="Mensaje" name="user_message" ref={message} required />
-                                <input type="submit" id="btnEnviar" value="Enviar" />
-                            </form>
-                        </div>
-                    </div>
-                </>
+                <Suspense>
+                     <MailPopUp mailPopUp={mailPopUp} product={product} handlePopUp={handlePopUp}/>
+                </Suspense>
             )}
         </div>
     );
