@@ -15,24 +15,29 @@ const DashboardCatalog = ({ productData }) => {
   const imagenSecundariaRef = useRef();
   const imagenTerciariaRef = useRef();
   const caracteristicasRef = useRef();
-
-  const createData = async (e) => {
-    e.preventDefault();
-    const createUrl = `https://dehierroymaderabackend-production.up.railway.app/api/products/`;
+  const createFormData = () => {
     const formData = new FormData();
     formData.append("nombre", nombreRef.current.value);
     formData.append("descripcion", descripcionRef.current.value);
     formData.append("descripcionCorta", descripcionCortaRef.current.value);
     formData.append("categoriaPadre", categoriaPadreRef.current.value);
     formData.append("categoria", categoriaHijaRef.current.value);
-    formData.append("caracteristicas", caracteristicasRef.current.value);
     formData.append("imagen", imagenPrincipalRef.current.files[0]);
     formData.append("imagen2", imagenSecundariaRef.current.files[0]);
     formData.append("imagen3", imagenTerciariaRef.current.files[0]);
+    formData.append("caracteristicas", caracteristicasRef.current.value);    
+    return formData;
+  }
+
+  const createData = async (e) => {
+    e.preventDefault();
+    const createUrl = `https://dehierroymaderabackend-production.up.railway.app/api/products/`;
     try {
-      const response = await fetchData(createUrl, "POST", formData);
+      const response = await fetchData(createUrl, "POST", createFormData());
       const newProduct = response.data;
-      setUpdatedProduct([...updatedProduct, newProduct]);
+      console.log(newProduct);
+      setUpdatedProduct( [...updatedProduct, newProduct]);
+      console.log(updatedProduct,'estado') 
       alert(response.message);
     }
     catch (error) {
@@ -42,24 +47,9 @@ const DashboardCatalog = ({ productData }) => {
 
   const putData = async (e) => {
     e.preventDefault();
-
     const PutUrl = `https://dehierroymaderabackend-production.up.railway.app/api/products/${selectedProduct._id}`;
-    const formData = new FormData();
-    formData.append("nombre", nombreRef.current.value);
-    formData.append("descripcion", descripcionRef.current.value);
-    formData.append("descripcionCorta", descripcionCortaRef.current.value);
-    formData.append("categoriaPadre", categoriaPadreRef.current.value);
-    formData.append("categoria", categoriaHijaRef.current.value);
-    formData.append("imagen", imagenPrincipalRef.current.files[0]);
-    formData.append("imagen2", imagenSecundariaRef.current.files[0]);
-    formData.append("imagen3", imagenTerciariaRef.current.files[0]);
-    
-    if (selectedProduct.caracteristicas) {
-      formData.append("caracteristicas", caracteristicasRef.current.value);
-    }
-
     try {
-      const response = await fetchData(PutUrl, "PUT", formData);
+      const response = await fetchData(PutUrl, "PUT", createFormData());
       const updatedProductIndex = updatedProduct.findIndex(
         (product) => product._id === selectedProduct._id
       );
@@ -69,9 +59,7 @@ const DashboardCatalog = ({ productData }) => {
       setUpdatedProduct(updatedProductList);
       alert(response.message);
       closeEdit();
-
     }
-
     catch (error) {
       throw new Error(error.message);
     }
@@ -111,6 +99,7 @@ const DashboardCatalog = ({ productData }) => {
     <div className="dashboard-wrapper">
       <div className="product-dashboard-container">
         {updatedProduct.map((producto) => (
+          producto && (
           <div className="product-dashboard" key={producto._id} category={producto.categoria}>
             <img src={producto.imagen} alt="img-product" />
             <div className="catalog-info">
@@ -122,7 +111,7 @@ const DashboardCatalog = ({ productData }) => {
               </div>
             </div>
           </div>
-        ))}
+        )))}
       </div>
       <div className="form-create">
         <div className="form-container">
@@ -159,9 +148,8 @@ const DashboardCatalog = ({ productData }) => {
             <input type="text" placeholder="categoria padre" name="categoriaPadre" defaultValue={selectedProduct.categoriaPadre} required ref={categoriaPadreRef} />
             <b>Categoria hija</b>
             <input type="text" placeholder="categoria hija" name="categoria" defaultValue={selectedProduct.categoria} ref={categoriaHijaRef} required />
-            {selectedProduct.caracteristicas ? (
-              <input type="text" placeholder="caracteristicas" name="caracteristicas" ref={caracteristicasRef} defaultValue={selectedProduct.caracteristicas} />
-            ) : null}
+            <b>Caracteristicas</b>
+            <input type="text" placeholder="caracteristicas" name="caracteristicas" ref={caracteristicasRef} defaultValue={selectedProduct.caracteristicas} />
             <b>Imagen principal:</b>
             <input type="file" ref={imagenPrincipalRef} name="imagen" />
             <b>Imagen secundaria</b>
