@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { ImClock } from 'react-icons/im';
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { UseOwnerContext } from '../../context/ownerContext';
 import './../../breadcumbs/css/dashboard.css'
 const Dashboard = () => {
-    const {ownerPermissions} = UseOwnerContext();
+
   
     const [time, setTime] = useState(new Date());
 
