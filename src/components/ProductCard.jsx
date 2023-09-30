@@ -92,8 +92,8 @@ const ProductCard = () => {
                                         <img src={product.imagen3} alt="" ref={productImagen3} />
                                     </SwiperSlide>
                                 )}
-                                <button className="swiper-button-next" onClick={()=>{ swiperRef.current.swiper.slidePrev()}} />
-                                <button className="swiper-button-prev" onClick={()=>{ swiperRef.current.swiper.slideNext()}}/>
+                                <button className="swiper-button-next" onClick={()=>{ swiperRef.current.swiper.slideNext()}} />
+                                <button className="swiper-button-prev" onClick={()=>{ swiperRef.current.swiper.slidePrev()}}/>
                             </Swiper>
 
                         </div>
