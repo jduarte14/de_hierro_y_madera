@@ -4,16 +4,13 @@ import Carrito from './../img/categorias/carrito.svg';
 import logo from './../img/logo.svg'
 import { Link } from 'react-router-dom';
 import { FcMenu } from 'react-icons/fc';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ToggleClass } from './../js/ToggleClass';
 
 const Header = ({ logged }) => {
-    useEffect(() => {
-        window.addEventListener("scroll", isFixed);
-    });
-
+    const refHeader = useRef();
     const isFixed = () => {
-        let header = document.querySelector('.header');
+        let header = refHeader.current;
         const scrollTop = window.scrollY;
 
         if (scrollTop >= 100) {
@@ -25,10 +22,12 @@ const Header = ({ logged }) => {
             }
         }
     }
+    useEffect(() => {
+        window.addEventListener("scroll", isFixed);
+    });
 
     return (
-        <header className="header">
-
+        <header className="header" ref={refHeader}>
             <div className="header-wrapper">
                 <div className="menu-mobile" onClick={ToggleClass}>
                     <FcMenu />

@@ -12,7 +12,7 @@ const error = () => {
                 <BsFillEmojiDizzyFill/>
                 </div>
                 <h2>Pagina no encontrada error (404) </h2>
-                <Link  class="go-back" to="/"> Vuelve a la pagina de inicio <BsFillHouseDoorFill/> </Link> 
+                <Link  className="go-back" to="/"> Vuelve a la pagina de inicio <BsFillHouseDoorFill/> </Link> 
             </div>
 
         </div>

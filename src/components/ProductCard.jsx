@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
-import React, { useEffect, useState, useRef, Suspense  } from 'react';
+import React, { useEffect, useState, useRef, Suspense } from 'react';
+import {  useParams,Navigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-//import MailPopUp from "./mailPopUp";
+
 import './../breadcumbs/css/mailPopUp.css';
 import './../breadcumbs/css/productCard.css';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -18,32 +18,36 @@ const ProductCard = () => {
     const [dropdown, setDropdown] = useState(true);
     const [mailPopUp, setPopUpMail] = useState(false);
     const [product, setProduct] = useState(null);
+    const [redirectToError, setRedirectToError] = useState(false);
+    const swiperRef = useRef();
+
+    const { id } = useParams();
 
     const productImagen1 = useRef();
     const productImagen2 = useRef();
     const productImagen3 = useRef();
- 
+
     const useDropdown = () => {
         setDropdown(!dropdown);
     };
 
-    const { id } = useParams();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`https://dehierroymaderabackend-production.up.railway.app/api/products/${id}`);
-                const productData = await response.json();
-
-                if (!response.ok) {
-                    throw new Error('No se pudo obtener los datos');
-                }
-                setProduct(productData.product);
-
-            } catch (error) {
-                console.error(error);
+    const handleFetchRejection = () => {
+        return setRedirectToError(true);
+    }
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`https://dehierroymaderabackend-production.up.railway.app/api/products/${id}`);
+            const productData = await response.json();
+            if (!response.ok || !response) {
+                return handleFetchRejection();
             }
-        };
+            setProduct(productData.product);
+
+        } catch (error) {
+            return handleFetchRejection();
+        }
+    };
+    useEffect(() => {
         fetchData();
     }, [id]);
 
@@ -51,10 +55,13 @@ const ProductCard = () => {
         mailPopUp ? setPopUpMail(false) : setPopUpMail(true);
     };
 
- 
+
 
     useEffect(() => {
-        document.body.classList.add('product-card');
+        return () => {
+            document.body.classList.remove('product-card');
+        };
+
     }, []);
 
     let phone = 59899323702;
@@ -66,11 +73,10 @@ const ProductCard = () => {
                 <div className="card-container">
                     {(product.imagen2 || product.imagen3) ? (
                         <div className="product-img">
-                            <Swiper
+                            <Swiper ref={swiperRef}
                                 spaceBetween={0}
                                 slidesPerView={1}
-                                navigation
-                                pagination={{ clickable: true }}
+                            
                             >
                                 <SwiperSlide>
                                     <img src={product.imagen} alt="" ref={productImagen1} />
@@ -79,14 +85,19 @@ const ProductCard = () => {
                                     <SwiperSlide>
                                         <img src={product.imagen2} alt="" ref={productImagen2} />
                                     </SwiperSlide>
+                                    
                                 )}
                                 {product.imagen3 && product.imagen3.trim() !== '' && (
                                     <SwiperSlide>
                                         <img src={product.imagen3} alt="" ref={productImagen3} />
                                     </SwiperSlide>
                                 )}
+                                <button className="swiper-button-next" onClick={()=>{ swiperRef.current.swiper.slidePrev()}} />
+                                <button className="swiper-button-prev" onClick={()=>{ swiperRef.current.swiper.slideNext()}}/>
                             </Swiper>
+
                         </div>
+
                     ) : (
                         <div className="product-img">
                             <img src={product.imagen} alt="" />
@@ -124,9 +135,10 @@ const ProductCard = () => {
 
             {mailPopUp && (
                 <Suspense>
-                     <MailPopUp mailPopUp={mailPopUp} product={product} handlePopUp={handlePopUp}/>
+                    <MailPopUp mailPopUp={mailPopUp} product={product} handlePopUp={handlePopUp} />
                 </Suspense>
             )}
+            {redirectToError ? <Navigate to="/*" /> : false}
         </div>
     );
 };

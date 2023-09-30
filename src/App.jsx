@@ -10,7 +10,7 @@ import Dashboard from './components/dashboard/dashboard';
 import DashboardCatalog from './components/dashboard/catalog';
 import Login from './components/auth/login';
 import SiteMap from './components/sitemap';
-
+import { OwnerProvider, UseOwnerContext } from './context/ownerContext';
 
 function App() {
   const location = useLocation();
@@ -58,22 +58,24 @@ function App() {
 
   return (
     <div className="App">
-      <Header logged={logged}/>
-      <Routes>
-        <Route exact path="/" element={<HomeContent productData={product} />} />
-        <Route exact path="/productos/:id" element={<ProductCard productInfo={product} />} />
-        <Route exact path="/catalogo" element={<ProductCatalog productData={product}/>} />
-        <Route exact path="/login" element={<Login/>}/>
-        <Route exact path="/sitemap.xml" element={<SiteMap/>}/>
-        {
-          logged ? <Route exact path="/admin" element={<Dashboard />} /> : <Route exact path="/admin" element={<Error />} />
-        }
-        {
-          logged ? <Route exact path="/admin/catalog" element={<DashboardCatalog productData={product}/>} /> : <Route exact path="/admin/catalog" element={<Error />} />
-        }
-        <Route exact path="*" element={<Error />} />
-      </Routes>
-      <Footer />
+      <OwnerProvider>
+        <Header logged={logged} />
+        <Routes>
+          <Route exact path="/" element={<HomeContent productData={product} />} />
+          <Route exact path="/productos/:id" element={<ProductCard productInfo={product} />} />
+          <Route exact path="/catalogo" element={<ProductCatalog productData={product} />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/sitemap.xml" element={<SiteMap />} />
+          {
+            logged ? <Route exact path="/admin" element={<Dashboard />} /> : <Route exact path="/admin" element={<Error />} />
+          }
+          {
+            logged ? <Route exact path="/admin/catalog" element={<DashboardCatalog productData={product} />} /> : <Route exact path="/admin/catalog" element={<Error />} />
+          }
+          <Route exact path="*" element={<Error />} />
+        </Routes>
+        <Footer />
+      </OwnerProvider>
     </div>
   );
 }
