@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import { Navigation, Loop } from 'swiper';
@@ -6,17 +7,26 @@ import 'swiper/css';
 
 const ProductSwiper1 = ({ categoriaPadre, product }) => {
 
+  const [loading, setLoading] = useState(true);
+
   const filteredProducts = product.filter(
     (product) => product.categoriaPadre === categoriaPadre
   );
+
+  useEffect(() => {
+    if (filteredProducts.length > 0) {
+      setLoading(false);
+    }
+  }, [filteredProducts]);
   return (
     <div className="home-content">
       <div className="group_title">
         <h1>{categoriaPadre}</h1>
         <hr />
       </div>
+
       {
-        filteredProducts ? <Swiper spaceBetween={35}
+        filteredProducts && !loading ? <Swiper spaceBetween={35}
           modules={[Navigation]}
           navigation
           loop
@@ -36,7 +46,6 @@ const ProductSwiper1 = ({ categoriaPadre, product }) => {
           }}
         >
           {
-
             filteredProducts.map((product) => {
               return <SwiperSlide key={product.id} >
                 <div className="product-wrapper" >
@@ -56,19 +65,22 @@ const ProductSwiper1 = ({ categoriaPadre, product }) => {
                   </Link>
                 </div>
               </SwiperSlide>
-
-
-            }
-
-
-
-
-            )
+            })
           }
 
-        </Swiper> : ''
+        </Swiper> : <div className="skeleton_row">
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+        </div>
       }
-
+      <div className="skeleton_row">
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+          <div className="skeleton"></div>
+        </div>
     </div>
   )
 }
