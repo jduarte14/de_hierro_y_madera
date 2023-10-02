@@ -1,9 +1,9 @@
 .card-wrapper {
     max-width: 65%;
-    margin:0 auto 40px;
+    margin:0 auto 30px;
     height:100%;
     background:white;
-    padding:2%;
+    padding:4% 0 0 ;
     display:flex;
     justify-content: center;
     align-items: center;

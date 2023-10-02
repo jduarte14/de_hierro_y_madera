@@ -64,22 +64,16 @@ footer form input + input {
 .form-wrapper {
     margin-left:auto;
     width:max-content;
-}
-
-
-.message-sended {
-    transition:2s ease;
-    opacity:1;
+    position: relative;
 }
 
 .message-sended {
     transition: 2s ease;
     opacity: 1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: -30px;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-25%;
 }
 
 .message-sended.hide {
@@ -134,6 +128,12 @@ footer #btnEnviar:hover {
         margin:0 auto;
         padding-bottom:20px;
     }
+    .message-sended {
+        position:relative;
+        bottom:0;
+        display:flex;
+        text-align: center;
+    }
 }
 
 @media (max-width:640px) {
@@ -148,8 +148,8 @@ footer #btnEnviar:hover {
     .footer-content {
         margin-top:40px;
     }
-    .message-sended {
-        position:relative;
-        bottom:0;
+    .form-wrapper {
+        width:260px;
     }
 }
+

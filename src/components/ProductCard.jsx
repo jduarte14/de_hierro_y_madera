@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react';
-import {  useParams,Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './../breadcumbs/css/mailPopUp.css';
@@ -76,7 +76,6 @@ const ProductCard = () => {
                             <Swiper ref={swiperRef}
                                 spaceBetween={0}
                                 slidesPerView={1}
-                            
                             >
                                 <SwiperSlide>
                                     <img src={product.imagen} alt="" ref={productImagen1} />
@@ -85,15 +84,15 @@ const ProductCard = () => {
                                     <SwiperSlide>
                                         <img src={product.imagen2} alt="" ref={productImagen2} />
                                     </SwiperSlide>
-                                    
+
                                 )}
                                 {product.imagen3 && product.imagen3.trim() !== '' && (
                                     <SwiperSlide>
                                         <img src={product.imagen3} alt="" ref={productImagen3} />
                                     </SwiperSlide>
                                 )}
-                                <button className="swiper-button-next" onClick={()=>{ swiperRef.current.swiper.slideNext()}} />
-                                <button className="swiper-button-prev" onClick={()=>{ swiperRef.current.swiper.slidePrev()}}/>
+                                <button className="swiper-button-next" onClick={() => { swiperRef.current.swiper.slideNext() }} />
+                                <button className="swiper-button-prev" onClick={() => { swiperRef.current.swiper.slidePrev() }} />
                             </Swiper>
 
                         </div>
