@@ -5,8 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import './../breadcumbs/css/mailPopUp.css';
 import './../breadcumbs/css/productCard.css';
 import { FaWhatsapp } from 'react-icons/fa';
-import { AiOutlineMail } from 'react-icons/ai';
+import { AiOutlineMail,AiFillCaretRight,AiOutlineRight } from 'react-icons/ai';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -70,6 +71,12 @@ const ProductCard = () => {
     return (
         <div className="card-wrapper" id="product">
             {product ? (
+                <>
+                <div className="card-categories">
+                    <p className="card-category">{product.categoriaPadre}</p>
+                    <AiOutlineRight/>
+                    <p className="card-category">{product.categoria}</p>
+                </div>
                 <div className="card-container">
                     {(product.imagen2 || product.imagen3) ? (
                         <div className="product-img">
@@ -126,6 +133,7 @@ const ProductCard = () => {
                         )}
                     </div>
                 </div>
+                </>
             ) : (
                 <div className="spinner">
                     <CgSpinnerTwoAlt />
