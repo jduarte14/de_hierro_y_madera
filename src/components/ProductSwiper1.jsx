@@ -75,12 +75,6 @@ const ProductSwiper1 = ({ categoriaPadre, product }) => {
           <div className="skeleton"></div>
         </div>
       }
-      <div className="skeleton_row">
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-        </div>
     </div>
   )
 }
