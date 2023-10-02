@@ -4,10 +4,10 @@ import Carrito from './../img/categorias/carrito.svg';
 import logo from './../img/logo.svg'
 import { Link } from 'react-router-dom';
 import { FcMenu } from 'react-icons/fc';
-import React, { useEffect, useRef } from 'react';
-import { ToggleClass } from './../js/ToggleClass';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Header = ({ logged }) => {
+    const [mobileMenu, setMobileMenu] = useState(false);
     const refHeader = useRef();
     const isFixed = () => {
         let header = refHeader.current;
@@ -22,6 +22,11 @@ const Header = ({ logged }) => {
             }
         }
     }
+
+    const handleMobileMenu = () => {
+        mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
+     }
+
     useEffect(() => {
         window.addEventListener("scroll", isFixed);
     });
@@ -29,12 +34,15 @@ const Header = ({ logged }) => {
     return (
         <header className="header" ref={refHeader}>
             <div className="header-wrapper">
-                <div className="menu-mobile" onClick={ToggleClass}>
+                <div className="menu-mobile" onClick={handleMobileMenu}>
                     <FcMenu />
-
                 </div>
-                <div className="menu-mobile-wrapper">
-                    <div className="menu-mobile side-bar" id="menuMobile">
+                <div className="menu-mobile-wrapper">{}
+                    <div className={mobileMenu ? 'menu-mobile side-bar active' : 'menu-mobile side-bar'} id="menuMobile">
+                        {
+                            mobileMenu ?  <div className="overlay" onClick={()=>{setMobileMenu(false)}} /> :null
+                        }
+                      
                         <div className="mobile-wrapper">
                             <div className='mobile-links'>
                                 <ul>
