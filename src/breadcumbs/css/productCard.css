@@ -12,6 +12,16 @@
     flex-direction: column;
 }
 
+.card-title {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top:15px;
+}
+
+.card-wrapper .group_title hr {
+    display:none;
+}
+
 .product-img {
     max-width:400px;
 }
@@ -121,6 +131,8 @@
 .card-wrapper{
     min-height:60vh;
 }
+
+
 
 @media (min-width:1024px) {
    

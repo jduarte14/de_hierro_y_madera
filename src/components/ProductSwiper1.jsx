@@ -5,9 +5,10 @@ import { Navigation, Loop } from 'swiper';
 
 import 'swiper/css';
 
-const ProductSwiper1 = ({ categoriaPadre, product }) => {
+const ProductSwiper1 = ({ categoriaPadre, product, customTitle }) => {
 
   const [loading, setLoading] = useState(true);
+  console.log(categoriaPadre,'el title')
 
   const filteredProducts = product.filter(
     (product) => product.categoriaPadre === categoriaPadre
@@ -21,7 +22,10 @@ const ProductSwiper1 = ({ categoriaPadre, product }) => {
   return (
     <div className="home-content">
       <div className="group_title">
-        <h1>{categoriaPadre}</h1>
+        {
+          customTitle ? <h2 className="card-title">{categoriaPadre} que te pueden interesar </h2> : <h1>{categoriaPadre}</h1>
+        }
+        
         <hr />
       </div>
 

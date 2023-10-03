@@ -18,6 +18,7 @@ const ProductCard = ({ products }) => {
     const [dropdown, setDropdown] = useState(true);
     const [mailPopUp, setPopUpMail] = useState(false);
     const [product, setProduct] = useState(null);
+    const [customTitle,setCustomTitle] = useState(true);
     const [redirectToError, setRedirectToError] = useState(false);
     const swiperRef = useRef();
 
@@ -54,8 +55,7 @@ const ProductCard = ({ products }) => {
     const handlePopUp = () => {
         mailPopUp ? setPopUpMail(false) : setPopUpMail(true);
     };
-
-
+  
 
     useEffect(() => {
         return () => {
@@ -133,7 +133,7 @@ const ProductCard = ({ products }) => {
                             )}
                         </div>
                     </div>
-                    <ProductSwiper1 product={products} categoriaPadre={product.categoriaPadre} />
+                    <ProductSwiper1 product={products} categoriaPadre={product.categoriaPadre} customTitle={customTitle}  />
                 </>
 
             ) : (
