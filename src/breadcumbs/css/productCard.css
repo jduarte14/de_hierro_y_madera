@@ -160,6 +160,9 @@
     .product-card-catalog {
         margin-left:auto;
         color:black;
+        background: var(--gray);
+        padding:5px 10px;
+        border-radius: 5px;
     }
     
     .card-categories svg {

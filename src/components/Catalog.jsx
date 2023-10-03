@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { FiFilter } from 'react-icons/fi';
-import { FaCheck } from 'react-icons/fa';
-import catalogStyle from './../breadcumbs/css/catalog.css';
-import ShowFilters from './../js/ShowFilters';
+import  './../breadcumbs/css/catalog.css';
 
 const ProductCatalog = ({ productData }) => {
+    const [filtersVisibility, setFiltersVisibility] = useState(false);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const { search } = useLocation();
     const navigate = useNavigate();
     const filters = queryString.parse(search);
+
+    const handleVisibility = () => { 
+        filtersVisibility ? setFiltersVisibility(false) : setFiltersVisibility(true);
+    };
 
     const handleFilterChange = (filterValue) => {
         let newFilters = { ...filters };
@@ -34,11 +37,12 @@ const ProductCatalog = ({ productData }) => {
         <div className="catalog-wrapper" id="content">
             <h1 className="catalog-title">Catalogo</h1>
             <div className="filter-mobile">
-                <button onClick={ShowFilters}>
+                <button onClick={handleVisibility}>
                     <FiFilter /> Filtrar catalogo
                 </button>
             </div>
-            <div className="filter sidebar">
+            <div className={filtersVisibility ? 'filter sidebar active' : 'filter sidebar'}>
+            {filtersVisibility ? <div className="overlay" onClick={()=>{setFiltersVisibility(false)}}/> :null}
                 <div className="sidebar-wrapper">
                     <div className="filter-column">
                         <h4> Filtros </h4>
