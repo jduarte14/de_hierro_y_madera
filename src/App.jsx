@@ -62,7 +62,7 @@ function App() {
         <Header logged={logged} />
         <Routes>
           <Route exact path="/" element={<HomeContent productData={product} />} />
-          <Route exact path="/productos/:id" element={<ProductCard productInfo={product} />} />
+          <Route exact path="/productos/:id" element={<ProductCard products={product} />} />
           <Route exact path="/catalogo" element={<ProductCatalog productData={product} />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/sitemap.xml" element={<SiteMap />} />
