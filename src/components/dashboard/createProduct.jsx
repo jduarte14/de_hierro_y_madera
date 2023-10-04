@@ -9,8 +9,8 @@ const EditProduct = () => {
     const [imageSrc1, setImageSrc1] = useState(null);
     const [imageSrc2, setImageSrc2] = useState(null);
     const [imageSrc3, setImageSrc3] = useState(null);
-
     const [popup, setPopUp] = useState(false);
+    const [createdProduct, setCreatedProduct] = useState(false);
 
     //Nodes
     const nombreRef = useRef();
@@ -72,6 +72,7 @@ const EditProduct = () => {
             const response = await fetchData(`https://dehierroymaderabackend-production.up.railway.app/api/products/`, 'POST', createFormData());
             if (response.status === 'success') {
                 setPopUp(true);
+                setCreatedProduct(true);
             }
             else {
                 throw new Error("No se pudo actualizar el producto");
@@ -84,7 +85,7 @@ const EditProduct = () => {
 
     return (
         <>
-            <div className="dashboard-product-container">
+            <div className={createdProduct ? "completed-product dashboard-product-container" : "dashboard-product-container"}>
                 <div className="dashboard-product-wrapper">
                     <div className="gallery-images">
                         {imageSrc1 && <img src={imageSrc1} alt="Vista previa 1" style={{ width: '300px' }} />}
@@ -130,7 +131,9 @@ const EditProduct = () => {
                             <input type="file" name="imagen3" onChange={(e) => handleImageChange(e)} ref={imagenTerciariaRef} />
                             {imageSrc3 && <img src={imageSrc3} alt="Vista previa 3" style={{ width: '60px' }} />}
                         </div>
-                        <b>*Vista previas de las imagenes cargadas en parte superior</b>
+                        {
+                            createdProduct ? <b>El producto ha sido creado <Link to="/admin/catalog">Ir al catalogo</Link></b> : <b>*Vista previas de las imagenes cargadas en parte superior</b>
+                        }
                     </div>
                     <div className="row-buttons">
                         <input type="submit" value="Crear producto" onClick={createProduct} />
@@ -143,11 +146,11 @@ const EditProduct = () => {
                 </div>
             </div>
             {
-                popup ? 
+                popup ?
                     <Suspense>
                         <WarnPopUp title="Se ha creado el producto" description="Puedes visualizarlo en el catalogo y el dashboard" passedFunction={handlePopUp} />
-                    </Suspense> 
-                : null
+                    </Suspense>
+                    : null
             }
 
         </>

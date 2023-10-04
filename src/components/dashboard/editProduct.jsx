@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react';
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchData } from '../helpers/fetchHelper';
 import { CgSpinnerTwoAlt } from 'react-icons/cg';
 
@@ -10,6 +10,8 @@ const EditProduct = () => {
     const [popup, setPopUp] = useState(false);
     const [popUpOperation, setPopUpOperation] = useState('');
     const [product, setProduct] = useState();
+    const [deletedData, setDeletedData] = useState(false);
+    const [editedData, setEditedData] = useState(false);
 
     const { id } = useParams();
 
@@ -43,14 +45,14 @@ const EditProduct = () => {
         return formData;
     }
 
-    const handleProps =(type)=>{
-        if(type === 'PUT') {
+    const handleProps = (type) => {
+        if (type === 'PUT') {
             return {
                 title: 'El producto se ha editado',
                 description: 'Puedes visualizar los cambios en el catalogo o el dashboard',
                 passedFunction: handlePopUp,
             }
-            
+
         } else if (type === 'DELETE') {
             return {
                 title: 'Eliminar producto',
@@ -59,7 +61,7 @@ const EditProduct = () => {
                 passedFunction: deleteData,
                 closeFunction: handlePopUp
             }
-         }
+        }
     }
 
     const getProductData = async () => {
@@ -86,6 +88,7 @@ const EditProduct = () => {
                 setPopUpOperation('PUT');
                 handleProps();
                 handlePopUp();
+                setEditedData(true);
             }
             else {
                 throw new Error("No se pudo actualizar el producto");
@@ -96,7 +99,7 @@ const EditProduct = () => {
         }
     };
 
-    const previousDelete =()=>{
+    const previousDelete = () => {
         setPopUpOperation('DELETE');
         handlePopUp();
     }
@@ -106,7 +109,8 @@ const EditProduct = () => {
         try {
             const response = await fetchData(`https://dehierroymaderabackend-production.up.railway.app/api/products/${id}`, 'DELETE', null);
             if (response.status === 'success') {
-                setPopUp(false);    
+                setPopUp(false);
+                setDeletedData(true);
             }
             else {
                 throw new Error("No se pudo actualizar el producto");
@@ -122,7 +126,7 @@ const EditProduct = () => {
     }, [])
 
     return (
-        <div className="dashboard-product-container">
+        <div className={deletedData ? 'completed-product dashboard-product-container' : 'dashboard-product-container'}>
             <div className="dashboard-product-wrapper">
                 {
                     product ?
@@ -167,7 +171,13 @@ const EditProduct = () => {
                                 <input type="file" name="imagen" ref={imagenPrincipalRef} />
                                 <input type="file" name="imagen2" ref={imagenSecundariaRef} />
                                 <input type="file" name="imagen3" ref={imagenTerciariaRef} />
-                                <b>*Debe seleccionar la imagen que desea agregar o modificar.</b>
+                                {
+                                    deletedData ? <b>El producto ha sido eliminado <Link to="/admin/catalog">Ir al catalogo</Link></b> : <b>*Debe seleccionar la imagen que desea agregar o modificar.</b>
+                                }
+                                {
+                                    editedData ? <b> Se ha modificado el producto puede ir al catalogo a visualizarlo o editarlo nuevamente <Link to="/admin/catalog">Ir al catalogo</Link></b> : null
+                                }
+
                             </div>
                             <div className="row-buttons">
                                 <input type="submit" value="Editar producto" onClick={putData} />
