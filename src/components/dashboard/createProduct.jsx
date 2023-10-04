@@ -1,11 +1,16 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Suspense } from 'react';
 import { useParams, Navigate, Link } from "react-router-dom";
 import { fetchData } from '../helpers/fetchHelper';
+
+
 const EditProduct = () => {
+    const WarnPopUp = React.lazy(() => import('./warnPopUp.jsx'));
 
     const [imageSrc1, setImageSrc1] = useState(null);
     const [imageSrc2, setImageSrc2] = useState(null);
     const [imageSrc3, setImageSrc3] = useState(null);
+
+    const [popup, setPopUp] = useState(false);
 
     //Nodes
     const nombreRef = useRef();
@@ -18,6 +23,9 @@ const EditProduct = () => {
     const imagenTerciariaRef = useRef();
     const caracteristicasRef = useRef();
 
+    const handlePopUp = () => {
+        popup ? setPopUp(false) : setPopUp(true);
+    }
 
     const createFormData = () => {
         const formData = new FormData();
@@ -62,10 +70,8 @@ const EditProduct = () => {
         e.preventDefault();
         try {
             const response = await fetchData(`https://dehierroymaderabackend-production.up.railway.app/api/products/`, 'POST', createFormData());
-            console.log('aca')
-            if (response.success === true) {
-                console.log(response);
-                alert(response.message);
+            if (response.status === 'success') {
+                setPopUp(true);
             }
             else {
                 throw new Error("No se pudo actualizar el producto");
@@ -76,71 +82,76 @@ const EditProduct = () => {
         }
     };
 
-
-
     return (
-        <div className="dashboard-product-container">
-            <div className="dashboard-product-wrapper">
-
-                <div className="gallery-images">
-                    {imageSrc1 && <img src={imageSrc1} alt="Vista previa 1" style={{ width: '300px' }} />}
-                    {imageSrc2 && <img src={imageSrc2} alt="Vista previa 2" style={{ width: '300px' }} />}
-                    {imageSrc3 && <img src={imageSrc3} alt="Vista previa 3" style={{ width: '300px' }} />}
-
-
-                </div>
-                <div className="form-row">
-                    <label> Nombre del producto</label>
-                    <input type="text" ref={nombreRef} required  />
-                </div>
-                <div className="form-row">
-                    <label> Descripcion </label>
-                    <textarea type="text" ref={descripcionRef} required />
-                </div>
-                <div className="form-row">
-                    <label>Descripcion corta </label>
-                    <textarea type="text" ref={descripcionCortaRef} required />
-                </div>
-                <div className="form-row">
-                    <label> Categoria </label>
-                    <input type="text" ref={categoriaPadreRef} required />
-                </div>
-                <div className="form-row">
-                    <label>Subcategoria </label>
-                    <input type="text" ref={categoriaHijaRef} required />
-                </div>
-                <div className="form-row">
-                    <label>Caracteristicas </label>
-                    <textarea type="text" ref={caracteristicasRef} />
-                </div>
-                <div className="images-row">
-                    <label> Imagenes </label>
-                    <div className="preview-row">
-                        <input type="file" name="imagen" onChange={(e) => handleImageChange(e)} ref={imagenPrincipalRef} />
-                        {imageSrc1 && <img src={imageSrc1} alt="Vista previa 1" style={{ width: '60px' }} />}
+        <>
+            <div className="dashboard-product-container">
+                <div className="dashboard-product-wrapper">
+                    <div className="gallery-images">
+                        {imageSrc1 && <img src={imageSrc1} alt="Vista previa 1" style={{ width: '300px' }} />}
+                        {imageSrc2 && <img src={imageSrc2} alt="Vista previa 2" style={{ width: '300px' }} />}
+                        {imageSrc3 && <img src={imageSrc3} alt="Vista previa 3" style={{ width: '300px' }} />}
                     </div>
-                    <div className="preview-row">
-                        <input type="file" name="imagen2" onChange={(e) => handleImageChange(e)} ref={imagenSecundariaRef} />
-                        {imageSrc2 && <img src={imageSrc2} alt="Vista previa 2" style={{ width: '60px' }} />}
+                    <div className="form-row">
+                        <label> Nombre del producto</label>
+                        <input type="text" ref={nombreRef} required />
+                    </div>
+                    <div className="form-row">
+                        <label> Descripcion </label>
+                        <textarea type="text" ref={descripcionRef} required />
+                    </div>
+                    <div className="form-row">
+                        <label>Descripcion corta </label>
+                        <textarea type="text" ref={descripcionCortaRef} required />
+                    </div>
+                    <div className="form-row">
+                        <label> Categoria </label>
+                        <input type="text" ref={categoriaPadreRef} required />
+                    </div>
+                    <div className="form-row">
+                        <label>Subcategoria </label>
+                        <input type="text" ref={categoriaHijaRef} required />
+                    </div>
+                    <div className="form-row">
+                        <label>Caracteristicas </label>
+                        <textarea type="text" ref={caracteristicasRef} />
+                    </div>
+                    <div className="images-row">
+                        <label> Imagenes </label>
+                        <div className="preview-row">
+                            <input type="file" name="imagen" onChange={(e) => handleImageChange(e)} ref={imagenPrincipalRef} />
+                            {imageSrc1 && <img src={imageSrc1} alt="Vista previa 1" style={{ width: '60px' }} />}
+                        </div>
+                        <div className="preview-row">
+                            <input type="file" name="imagen2" onChange={(e) => handleImageChange(e)} ref={imagenSecundariaRef} />
+                            {imageSrc2 && <img src={imageSrc2} alt="Vista previa 2" style={{ width: '60px' }} />}
+                        </div>
+
+                        <div className="preview-row">
+                            <input type="file" name="imagen3" onChange={(e) => handleImageChange(e)} ref={imagenTerciariaRef} />
+                            {imageSrc3 && <img src={imageSrc3} alt="Vista previa 3" style={{ width: '60px' }} />}
+                        </div>
+                        <b>*Vista previas de las imagenes cargadas en parte superior</b>
+                    </div>
+                    <div className="row-buttons">
+                        <input type="submit" value="Crear producto" onClick={createProduct} />
+                        <Link to="/admin/catalog">
+                            Cancelar
+                        </Link>
                     </div>
 
-                    <div className="preview-row">
-                        <input type="file" name="imagen3" onChange={(e) => handleImageChange(e)} ref={imagenTerciariaRef} />
-                        {imageSrc3 && <img src={imageSrc3} alt="Vista previa 3" style={{ width: '60px' }} />}
-                    </div>
 
-                    <b>*Vista previas de las imagenes cargadas en parte superior</b>
                 </div>
-                <div className="row-buttons">
-                    <input type="submit" value="Crear producto" onClick={createProduct} />
-                    <Link to="/admin/catalog">
-                        Cancelar
-                    </Link>
-                </div>
-
-
             </div>
-        </div>
+            {
+                popup ? 
+                    <Suspense>
+                        <WarnPopUp title="Se ha creado el producto" description="Puedes visualizarlo en el catalogo y el dashboard" passedFunction={handlePopUp} />
+                    </Suspense> 
+                : null
+            }
+
+        </>
+
     )
 }
 

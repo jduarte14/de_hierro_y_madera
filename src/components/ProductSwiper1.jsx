@@ -5,11 +5,10 @@ import { Navigation, Loop } from 'swiper';
 
 import 'swiper/css';
 
-const ProductSwiper1 = ({ categoriaPadre, product, customTitle }) => {
+const ProductSwiper1 = ({ categoriaPadre, product, customTitle, addLoop }) => {
 
-  const [loading, setLoading] = useState(true);
-  console.log(categoriaPadre,'el title')
-
+  const [loading, setLoading] = useState(true);  
+  
   const filteredProducts = product.filter(
     (product) => product.categoriaPadre === categoriaPadre
   );
@@ -30,14 +29,15 @@ const ProductSwiper1 = ({ categoriaPadre, product, customTitle }) => {
       </div>
 
       {
-        filteredProducts && !loading ? <Swiper spaceBetween={35}
+        filteredProducts && !loading ?
+         <Swiper spaceBetween={35}
           modules={[Navigation]}
           navigation
-          loop
+          loop={addLoop}
           breakpoints={{
             1920: {
               width: 1920,
-              slidesPerView: 6,
+              slidesPerView: 7,
             },
             640: {
               width: 640,

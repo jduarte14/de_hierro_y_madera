@@ -132,7 +132,7 @@ const ProductCard = ({ products }) => {
                             )}
                         </div>
                     </div>
-                    <ProductSwiper1 product={products} categoriaPadre={product.categoriaPadre} customTitle={customTitle}  />
+                    <ProductSwiper1 product={products} categoriaPadre={product.categoriaPadre} customTitle={customTitle} />
                 </>
 
             ) : (

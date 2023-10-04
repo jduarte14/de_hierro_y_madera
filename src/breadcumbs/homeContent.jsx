@@ -9,7 +9,7 @@ const HomeContent = ({productData}) => {
             <HomeSwiper />
             <div className="home-wrapper">
                 <CategorySwiper />
-                <ProductSwiper1 product={productData} categoriaPadre="muebles"/>
+                <ProductSwiper1 product={productData} categoriaPadre="muebles" />
                 <ProductSwiper1 product={productData} categoriaPadre="luminaria"/>
             </div>
 
