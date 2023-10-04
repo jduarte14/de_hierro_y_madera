@@ -8,8 +8,10 @@ import Footer from './breadcumbs/Footer';
 import Error from './components/Error';
 import Dashboard from './components/dashboard/dashboard';
 import DashboardCatalog from './components/dashboard/catalog';
+import EditProduct  from './components/dashboard/editProduct';
 import Login from './components/auth/login';
 import SiteMap from './components/sitemap';
+import CreateProduct from './components/dashboard/createProduct';
 import { OwnerProvider, UseOwnerContext } from './context/ownerContext';
 
 function App() {
@@ -70,7 +72,13 @@ function App() {
             logged ? <Route exact path="/admin" element={<Dashboard />} /> : <Route exact path="/admin" element={<Error />} />
           }
           {
+            logged ? <Route exact path="/dashboard/product/:id" element={<EditProduct products={product} />} /> : <Route exact path="/admin" element={<Error />} />
+          }
+          {
             logged ? <Route exact path="/admin/catalog" element={<DashboardCatalog productData={product} />} /> : <Route exact path="/admin/catalog" element={<Error />} />
+          }
+          {
+            logged ? <Route exact path="/admin/catalog/create" element={<CreateProduct  />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
           }
           <Route exact path="*" element={<Error />} />
         </Routes>

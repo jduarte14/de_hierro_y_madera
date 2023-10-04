@@ -4,8 +4,6 @@ import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './../../breadcumbs/css/dashboard.css'
 const Dashboard = () => {
-
-  
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {

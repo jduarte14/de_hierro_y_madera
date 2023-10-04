@@ -12,7 +12,6 @@ import './../breadcumbs/css/mailPopUp.css';
 import './../breadcumbs/css/productCard.css';
 
 const ProductCard = ({ products }) => {
-    console.log(products);
     const MailPopUp = React.lazy(() => import('./mailPopUp'));
 
     const [dropdown, setDropdown] = useState(true);

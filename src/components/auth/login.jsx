@@ -1,14 +1,12 @@
 import { useRef } from 'react';
 import './../../breadcumbs/css/login.css';
 const Login = () => {
-    const nameRef = useRef();
     const passwordRef = useRef();
     const emailRef = useRef();
 
     const LogUser = async (e) => {
         e.preventDefault();
         const userData = new URLSearchParams();
-        userData.append("name", nameRef.current.value);
         userData.append("password", passwordRef.current.value);
         userData.append("email", emailRef.current.value);
 
@@ -46,7 +44,7 @@ const Login = () => {
         <div className="login-container">
             <form onSubmit={LogUser}>
                 <label>Login</label>
-                <input type="text" placeholder="Name" name="name" required ref={nameRef} />
+                
                 <input type="email" placeholder="Email" name="Email" required ref={emailRef} />
                 <input type="password" placeholder="password" name="password" required ref={passwordRef} />
                 <input type="submit" className="btnEnviar" />

@@ -1,5 +1,5 @@
 .login-container {
-    background:#d6d3d1;
+    background:rgb(129 99 78 / 80%);
     height:100vh;
     display:flex;
     justify-content: center;
@@ -7,23 +7,26 @@
 }
 
 .login-container form {
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width:400px;
-    margin:0 auto;
-    padding:20px;
-    border-radius:5px;
-    background:white;
-    height:max-content;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 3% 1%;
+    border-radius: 10px;
+    background: var(--color1);
+    height: max-content;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    width:320px;
+    width: 320px;
+    border: 2px solid var(--gray);
 }
 
 .login-container label {
     text-align: center;
     font-weight:bold;
-    padding-bottom:10px;
+    padding-bottom:30px;
+    font-size:2.2em;
+    color:var(--brown);
 }
 
 .login-container .btnEnviar {
@@ -39,9 +42,21 @@
 
 .login-container input {
     margin:5px;
-    padding:8px 10px;
+    padding:11px 10px;
     border:2px solid var(--neutral);
-    color:var(--brown);
-    background:#e2e8f0;
+    color:var(--white);
+    font-weight:bold;
+    background:#d3b6a4;
 }
 
+.login-container input::placeholder {
+    color:white;
+}
+
+
+@media (max-width:640px) {
+    .login-container label {
+        font-size:1.8em;
+        padding-top:20px;
+    }
+}
