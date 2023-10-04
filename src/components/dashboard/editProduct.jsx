@@ -133,7 +133,7 @@ const EditProduct = () => {
                                 </div>
                                 <div className="row-buttons">
                                     <input type="submit" value="Editar producto" onClick={putData} />
-                                    <input type="submit" value="Eliminar articulo" onClick={deleteData} />
+                                    <input type="submit" className="yellow-btn" value="Eliminar articulo" onClick={deleteData} />
                                     <Link to="/admin/catalog">
                                         Cancelar
                                     </Link>
