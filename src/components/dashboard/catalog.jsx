@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { fetchData } from "../helpers/fetchHelper";
 import { Link } from 'react-router-dom';
 
 const DashboardCatalog = ({ productData }) => {
