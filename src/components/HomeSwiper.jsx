@@ -1,41 +1,45 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import swiper from '../breadcumbs/css/swiper.css'
-import { Pagination, EffectFade } from 'swiper';
-import {Link} from 'react-router-dom';
+import { Pagination, EffectFade, Autoplay } from 'swiper';
+import { Link } from 'react-router-dom';
+
 
 //Swiper CSS
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
-// Icons
-import { FaWhatsapp } from 'react-icons/fa';
-import imgBanner from "./../img/principal-banner.jpg"
-import imgBannerMobile from "./../img/mobile-banner.jpg"
-const HomeSwiper = () => {
+const HomeSwiper = ({ banner, bannerData }) => {
+  console.log(banner);
   return (
     <div className="principal-swiper">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        modules={[Pagination, EffectFade]}
+        modules={[Pagination, EffectFade, Autoplay]}
         pagination
         effect="fade"
+        loop={true}
+        autoplay={true}
 
 
       >
-        <SwiperSlide>
-          <div className="principal-banner">
-            <div className="info">
-              <h1>Muebles de Diseño Industrial</h1>
-              <h4>Combinando Funcionalidad y Estilo en Armonía</h4>
-              <p>Descubre nuestra exclusiva colección de productos de diseño industrial, 
-                donde la funcionalidad se encuentra con un estilo distintivo.</p>
-              <Link to="/catalogo" className="btn-banner">Visitar Catalogo</Link>
-            </div>
-            <img className="img-container desktop" src={imgBanner} alt="" />
-            <img className="img-container mobile" src={imgBannerMobile} alt="" />
-          </div>
-        </SwiperSlide>
+        {
+          banner ? banner.map(banner => {
+            return <SwiperSlide>
+              <div className="principal-banner" key={banner._id}>
+                <div className="info">
+                  <h1>{banner.title}</h1>
+                  <h4>{banner.subtitle}</h4>
+                    <p>{banner.description}</p>
+                  <Link to={banner.link} className="btn-banner">{banner.link_text}</Link>
+                </div>
+                <img className="img-container desktop" src={banner.desktop_image} alt="" />
+                <img className="img-container mobile" src={banner.mobile_image} alt="" />
+              </div>
+            </SwiperSlide>
+          }) : null
+        }
+
       </Swiper>
     </div>
   );

@@ -12,7 +12,7 @@ import EditProduct  from './components/dashboard/editProduct';
 import Login from './components/auth/login';
 import SiteMap from './components/sitemap';
 import CreateProduct from './components/dashboard/createProduct';
-import { OwnerProvider, UseOwnerContext } from './context/ownerContext';
+import { OwnerProvider } from './context/ownerContext';
 
 function App() {
   const location = useLocation();

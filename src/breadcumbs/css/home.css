@@ -186,7 +186,7 @@ img {
 /* Swiper pagination */
 
 .swiper-pagination-bullet {
-    background: rgba(0, 0, 0, 0.8);
+    background: white;
     width: 15px;
     height: 15px;
 }
