@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react';
-import { useParams, Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchData } from '../helpers/fetchHelper';
 
 

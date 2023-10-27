@@ -9,7 +9,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
 const HomeSwiper = ({ banner, bannerData }) => {
-  console.log(banner);
   return (
     <div className="principal-swiper">
       <Swiper
@@ -23,9 +22,11 @@ const HomeSwiper = ({ banner, bannerData }) => {
 
 
       >
+        
         {
           banner ? banner.map(banner => {
-            return <SwiperSlide>
+            
+            return banner.type ==="principal_banner" ? <SwiperSlide>
               <div className="principal-banner" key={banner._id}>
                 <div className="info">
                   <h1>{banner.title}</h1>
@@ -36,7 +37,7 @@ const HomeSwiper = ({ banner, bannerData }) => {
                 <img className="img-container desktop" src={banner.desktop_image} alt="" />
                 <img className="img-container mobile" src={banner.mobile_image} alt="" />
               </div>
-            </SwiperSlide>
+            </SwiperSlide> : null
           }) : null
         }
 

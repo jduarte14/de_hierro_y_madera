@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ImClock } from 'react-icons/im';
 import { AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai';
+import { BsLayoutTextWindow } from 'react-icons/bs';
+
 import { Link } from 'react-router-dom';
 import './../../breadcumbs/css/dashboard.css'
 const Dashboard = () => {
@@ -12,7 +14,7 @@ const Dashboard = () => {
         }, 1000);
 
         return () => clearInterval(interval);
-      
+
     }, []);
     const date = new Date().toDateString();
     const hour = time.getHours();
@@ -28,24 +30,36 @@ const Dashboard = () => {
                     <br />
                     <ImClock /> <span>{hour}:{minutes}:{seconds}</span>
                 </div>
-                <div className="dashboard-box">
-                    <Link>
-                        <AiOutlineUser />
-                        Gestionar usuarios
-                    </Link>
-                    <p>
-                        Gestiona los usuarios con permisos en el sitio.
-                    </p>
+                <div className="dashboard-flex">
+                    <div className="dashboard-box">
+                        <Link>
+                            <AiOutlineUser />
+                            Gestionar usuarios
+                        </Link>
+                        <p>
+                            Gestiona los usuarios con permisos en el sitio.
+                        </p>
+                    </div>
+                    <div className="dashboard-box">
+                        <Link to="/admin/catalog" >
+                            <AiOutlineShoppingCart />
+                            Gestionar productos
+                        </Link>
+                        <p>
+                            Crea, edita o elimina productos del catalogo.
+                        </p>
+                    </div>
+                    <div className="dashboard-box">
+                        <Link to="/admin/catalog/banners" >
+                            <BsLayoutTextWindow />
+                            Gestionar banners
+                        </Link>
+                        <p>
+                            Modifica la plantilla de la home
+                        </p>
+                    </div>
                 </div>
-                <div className="dashboard-box">
-                    <Link to="/admin/catalog" >
-                        <AiOutlineShoppingCart />
-                        Gestionar productos
-                    </Link>
-                    <p>
-                        Crea, edita o elimina productos del catalogo.
-                    </p>
-                </div>
+
             </div>
 
         </div>

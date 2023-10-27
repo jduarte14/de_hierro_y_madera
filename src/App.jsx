@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { OwnerProvider } from './context/ownerContext';
+
+//Components
 import HomeContent from './breadcumbs/homeContent';
 import Header from './breadcumbs/header';
 import ProductCard from './components/ProductCard';
@@ -8,11 +11,13 @@ import Footer from './breadcumbs/Footer';
 import Error from './components/Error';
 import Dashboard from './components/dashboard/dashboard';
 import DashboardCatalog from './components/dashboard/catalog';
-import EditProduct  from './components/dashboard/editProduct';
+import EditProduct from './components/dashboard/editProduct';
 import Login from './components/auth/login';
 import SiteMap from './components/sitemap';
 import CreateProduct from './components/dashboard/createProduct';
-import { OwnerProvider } from './context/ownerContext';
+import BannersDashboard from './components/dashboard/banners/bannersDashboard';
+import BannersEdition from './components/dashboard/banners/bannersEdition';
+import BannersCreation from './components/dashboard/banners/bannerCreation';
 
 function App() {
   const location = useLocation();
@@ -78,7 +83,16 @@ function App() {
             logged ? <Route exact path="/admin/catalog" element={<DashboardCatalog productData={product} />} /> : <Route exact path="/admin/catalog" element={<Error />} />
           }
           {
-            logged ? <Route exact path="/admin/catalog/create" element={<CreateProduct  />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
+            logged ? <Route exact path="/admin/catalog/create" element={<CreateProduct />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
+          }
+          {
+            logged ? <Route exact path="/admin/catalog/banners" element={<BannersDashboard />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
+          }
+          {
+            logged ? <Route exact path="/admin/catalog/banners/edit/:id" element={<BannersEdition />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
+          }
+          {
+            logged ? <Route exact path="/admin/catalog/banners/create" element={<BannersCreation />} /> : <Route exact path="/admin/catalog/:id" element={<Error />} />
           }
           <Route exact path="*" element={<Error />} />
         </Routes>
@@ -89,4 +103,3 @@ function App() {
 }
 
 export default App;
- 

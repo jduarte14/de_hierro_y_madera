@@ -226,7 +226,8 @@
 }
 
 
-.dashboard-product-wrapper {
+.dashboard-product-wrapper,
+.dashboard-banner-wrapper {
     background: var(--white);
     padding: 10px 20px;
     margin: 20px;
@@ -305,7 +306,7 @@
     padding-top: 10px;
 }
 
-.form-row input {
+.form-row input, .form-row select {
     min-width: 20vw;
     padding: 10px 5px;
     border-radius: 10px;
@@ -451,6 +452,11 @@
     padding: 10px;
 }
 
+.dashboard-box {
+    & p {
+        text-align: center;
+        }
+}
 
 .completed-product {
     & input,
@@ -469,4 +475,14 @@
     100% {
         opacity: 1;
     }
+}
+
+.dashboard-flex {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
+.dashboard-banner-wrapper h3 {
+    text-align: center;
 }
