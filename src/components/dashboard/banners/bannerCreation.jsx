@@ -6,8 +6,10 @@ import { CgSpinnerTwoAlt } from 'react-icons/cg';
 const BannersCreation = () => {
 
     const WarnPopUp = React.lazy(() => import('../warnPopUp.jsx'));
+    const BannerGuide = React.lazy(() => import('../bannerGuide.jsx'));
 
     const [popup, setPopUp] = useState(false);
+    const [bannerGuide, setBannerGuide] = useState(false);
     const [popUpOperation, setPopUpOperation] = useState(false);
     const [updatedData, setUpdatedData] = useState(false);
     const [mobileImage, setMobileImage] = useState();
@@ -21,6 +23,11 @@ const BannersCreation = () => {
     const typeRef = useRef();
     const bannerLinkRef = useRef();
     const bannerLinkTextRef = useRef();
+
+    const handleBannerGuide = () => {
+        bannerGuide ? setBannerGuide(false) :
+            setBannerGuide(true);
+    }
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -153,6 +160,7 @@ const BannersCreation = () => {
 
                     </div>
                     <div className="row-buttons">
+                        <button onClick={handleBannerGuide}>Ver guia de banners</button>
                         <input type="submit" value="Crear banner" onClick={createData} />
                         <Link to="/admin/catalog/banners">
                             Cancelar
@@ -165,6 +173,13 @@ const BannersCreation = () => {
                 popup ? (
                     <Suspense>
                         <WarnPopUp {...handleProps(popUpOperation)} />
+                    </Suspense>
+                ) : null
+            }
+            {
+                bannerGuide ? (
+                    <Suspense>
+                        <BannerGuide closeFunction={handleBannerGuide} />
                     </Suspense>
                 ) : null
             }

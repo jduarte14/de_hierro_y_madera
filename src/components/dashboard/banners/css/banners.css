@@ -91,3 +91,94 @@
     opacity: 0.8;
 }
 
+.popup-warn {
+    & section {
+        padding:10px;
+        margin-bottom:5px;
+        display:flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        transition:0.3s ease;
+    }
+    & h3 {
+        text-align: center;
+    }
+  
+    & main {
+        border:3px dashed var(--border);
+        padding:10px;
+        margin-bottom:20px;
+    }
+    & .principal_banner {
+        background:var(--border);
+        width:100%;
+        max-width:150px;
+        margin:0 auto;
+        border-radius:5px;
+        padding:20px 5px;
+    }
+    & b {
+        position: absolute;
+        left:0;
+        right:0;
+        bottom:0;
+        top:0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+    }
+    & .preview_category {
+        background:var(--border);
+        width:50px;
+        height:50px;
+        margin:3px;
+        border-radius:5px;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    }
+    & section > div {
+        background: var(--border);
+        margin: 3px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        transition:0.3s ease;
+    }
+    & section > div:hover,
+    .principal_banner:hover {
+        cursor:pointer;
+        background:rgb(254 240 138);  
+    }
+}
+
+.dashboard-banner-wrapper {
+    & button {
+        border-radius: 10px;
+        border: none;
+        background-color: var(--brown);
+        color: var(--white);
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s ease;
+        font-size: 15px;
+        display: block;
+        text-align: center;
+        max-width: max-content;
+        font-size: 1em;
+        transition: 0.3s ease;
+        padding: 10px 25px;
+    }
+    & button:hover {
+        opacity:0.8;
+    }
+    & figure {
+        margin-left:10px;
+        margin-right:10px;
+    }
+    & .gallery-images img {
+        min-width: 220px;
+        margin:10px;
+        
+    }
+}

@@ -7,7 +7,9 @@ import { create } from 'react-test-renderer';
 const BannersEdition = () => {
 
     const WarnPopUp = React.lazy(() => import('./../warnPopUp.jsx'));
+    const BannerGuide = React.lazy(() => import('../bannerGuide.jsx'));
 
+    const [bannerGuide, setBannerGuide] = useState(false);
     const [popup, setPopUp] = useState(false);
     const [popUpOperation, setPopUpOperation] = useState('');
     const [updatedData, setUpdatedData] = useState(false);
@@ -25,6 +27,12 @@ const BannersEdition = () => {
     const typeRef = useRef();
     const bannerLinkRef = useRef();
     const bannerLinkTextRef = useRef();
+
+
+    const handleBannerGuide = () => {
+        bannerGuide ? setBannerGuide(false) :
+            setBannerGuide(true);
+    }
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -52,8 +60,8 @@ const BannersEdition = () => {
         const formData = new FormData();
         formData.append("name", bannerNameRef.current.value);
         typeRef.current.value ?
-        formData.append("type", typeRef.current.value) :
-        formData.append("type", singleBanner.type);
+            formData.append("type", typeRef.current.value) :
+            formData.append("type", singleBanner.type);
         formData.append("title", bannerTitleRef.current.value);
         formData.append("subtitle", bannerSubTitleRef.current.value);
         formData.append("description", bannerDescriptionRef.current.value);
@@ -216,6 +224,7 @@ const BannersEdition = () => {
 
                             </div>
                             <div className="row-buttons">
+                                <button onClick={handleBannerGuide}>Ver guia de banners</button>
                                 <input type="submit" value="Editar banner" onClick={patchData} />
                                 <input type="submit" className="yellow-btn" value="Eliminar banner" onClick={previousDelete} />
                                 <Link to="/admin/catalog/banners">
@@ -234,6 +243,13 @@ const BannersEdition = () => {
                 popup ? (
                     <Suspense>
                         <WarnPopUp {...handleProps(popUpOperation)} />
+                    </Suspense>
+                ) : null
+            }
+            {
+                bannerGuide ? (
+                    <Suspense>
+                        <BannerGuide closeFunction={handleBannerGuide} />
                     </Suspense>
                 ) : null
             }
