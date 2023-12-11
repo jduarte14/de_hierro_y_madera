@@ -66,7 +66,7 @@ const Footer = () => {
                         <div className="logo">
                             <img src={Logo} alt="" />
                         </div>
-                        <b>© Copyright 2023 / De Hierro y Madera</b>
+                        <b>© De Hierro y Madera 2023 / Montevideo, Uruguay</b>
                     </div>
                 </div>
 
